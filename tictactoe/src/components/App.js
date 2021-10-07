@@ -5,25 +5,24 @@ const App = () => {
   return (
     <div>
       <h1>MY APP NOWWWWWWW</h1>
-      <Container>
+      <Container fluid>
         <Row>
           <Col style={{ border: "1px solid black" }} sm={8}>
             Intro
           </Col>
-          <Col style={{ border: "1px solid black" }} sm={4}>
-            Leaderboard
+          <Col style={{ border: "1px solid black"}} sm={4} >
+            LeaderBoard
           </Col>
         </Row>
         <Row>
-          <Col style={{ border: "1px solid black" }} sm>
+          <Col style={{ border: "1px solid black" }} sm={4}>
             Recently Played
           </Col>
-          <Col style={{ border: "1px solid black" }} sm>
+          <Col style={{ border: "1px solid black" }} sm={4}>
             Comments and Reviews{" "}
           </Col>
-          <Col style={{ border: "1px solid black" }} sm>
-            ......
-          </Col>
+          
+          
         </Row>
       </Container>
     </div>
