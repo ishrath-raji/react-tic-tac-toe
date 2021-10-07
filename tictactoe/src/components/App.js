@@ -1,28 +1,33 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import "../App.css";
 
 const App = () => {
   return (
     <div>
-      <h1>MY APP NOWWWWWWW</h1>
-      <Container fluid>
+      <Container style={{ margin: 10 }} fluid={true}>
         <Row>
-          <Col style={{ border: "1px solid black" }} sm={8}>
-            Intro
+          <Col sm={6} md={7}>
+            <Container>
+              <Row>
+                <Col className="intro" sm={12} md={12}>
+                <div className="intro box">TIC-TAC-TOE</div>
+                </Col>
+              </Row>
+              <Row>
+                <Col className="recently-played" sm={6} md={6}>
+                  <div className="rp box">Recently Played</div>
+                </Col>
+                <Col className="comments" sm={6} md={6}>
+                  <div className="comments box"> Comments and Reviews </div>
+                </Col>
+              </Row>
+            </Container>
           </Col>
-          <Col style={{ border: "1px solid black"}} sm={4} >
-            LeaderBoard
+
+          <Col className="leaderboard" sm={5} md={4}>
+          <div className="lb box">Leaderboard</div>
           </Col>
-        </Row>
-        <Row>
-          <Col style={{ border: "1px solid black" }} sm={4}>
-            Recently Played
-          </Col>
-          <Col style={{ border: "1px solid black" }} sm={4}>
-            Comments and Reviews{" "}
-          </Col>
-          
-          
         </Row>
       </Container>
     </div>
