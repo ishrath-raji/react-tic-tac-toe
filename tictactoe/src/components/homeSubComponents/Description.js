@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
 const Description = () => {
-    return (
-        <div>Tic-Tac-Toe</div>
-    );
-}
+  return (
+    <div>TIC-TAC-TOE</div>
+  );
+};
 
 export default Description;
