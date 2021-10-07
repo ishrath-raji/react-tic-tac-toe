@@ -1,21 +1,33 @@
 import React from "react";
-import {Container} from 'react-bootstrap';
-import {Row} from 'react-bootstrap';
-import {Col} from 'react-bootstrap';
+import { Container, Row, Col } from "react-bootstrap";
 
 const App = () => {
-  return <div>
-    <Container>
-      <Row>
-        <Col>1 of 2</Col>
-        <Col>2 of 2</Col>
-      </Row>
-      <Row>
-        <Col> 1 of 3</Col>
-        <Col> 2 of 3</Col>
-        <Col> 3 of 3</Col>
-      </Row>
-    </Container></div>;
+  return (
+    <div>
+      <h1>MY APP NOWWWWWWW</h1>
+      <Container>
+        <Row>
+          <Col style={{ border: "1px solid black" }} sm={8}>
+            Intro
+          </Col>
+          <Col style={{ border: "1px solid black" }} sm={4}>
+            Leaderboard
+          </Col>
+        </Row>
+        <Row>
+          <Col style={{ border: "1px solid black" }} sm>
+            Recently Played
+          </Col>
+          <Col style={{ border: "1px solid black" }} sm>
+            Comments and Reviews{" "}
+          </Col>
+          <Col style={{ border: "1px solid black" }} sm>
+            ......
+          </Col>
+        </Row>
+      </Container>
+    </div>
+  );
 };
 
 export default App;
