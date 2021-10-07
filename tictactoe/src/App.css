@@ -1,5 +1,7 @@
 .leaderboard {
+    max-width: 600px;
     padding: 0;
+    
 }
 .intro {
     min-height: 350px;
