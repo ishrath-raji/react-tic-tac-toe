@@ -1,9 +1,7 @@
-import React from 'react';
+import React from "react";
 
 const RecentlyPlayed = () => {
-    return (
-        <div>RecentlyPlayed</div>
-    );
-}
+  return <div>RecentlyPlayed</div>;
+};
 
 export default RecentlyPlayed;
