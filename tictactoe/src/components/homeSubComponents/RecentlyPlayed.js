@@ -1,5 +1,5 @@
 import React from 'react';
-// import Player from './Player';
+import Player from './Player';
 
 const data =[
     {
@@ -22,7 +22,7 @@ const data =[
 const RecentlyPlayed = () => {
     return (
         <div>
-            hi
+            Recently Played
         </div>
     );
 }
