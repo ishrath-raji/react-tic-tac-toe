@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Leaderboard from "./homeSubComponents/Leaderboard";
+import Menu from "./Menu";
 
 const Play = () => {
   return (
@@ -9,6 +10,7 @@ const Play = () => {
       <Link to="/gamehub/tictactoe">
         <button>back</button>
       </Link>
+      <Menu />
       <Leaderboard />
     </div>
   );

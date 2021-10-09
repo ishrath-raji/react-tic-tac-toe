@@ -71,9 +71,42 @@
     padding: 2.5% 0 2.5% 0;
     margin: 0;
 }
-.game-description p{
+.game-description p {
     margin: 0;
     padding: 0 0 2.5% 0;
     font-size: 120%;
     color: #898a8c;
+}
+.menu-list {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    justify-content: center;
+    align-items: center;
+}
+.menu-list button {
+    border: none;
+    color: white;
+    font-size: 120%;
+    font-weight: 450;
+    width: 80%;
+    margin: 2%;
+    padding: 1%;
+    border-radius: 10px;
+}
+.menu-list .orange {
+    background-color: #de5b59;
+}
+
+.menu-list .blue {
+    background-color: #60c5b5;
+}
+.title-green {
+    color: #60c5b5;
+}
+.title-orange {
+    color: #de5b59;
+}
+.title {
+    
 }
