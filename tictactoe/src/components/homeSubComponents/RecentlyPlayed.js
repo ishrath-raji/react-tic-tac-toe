@@ -1,30 +1,65 @@
 import React from 'react';
 import Player from './Player';
+import "../App";
 
-const data =[
+
+const players =[
     {
-        title:'Achini Rathnayake',
+        name:'Achini Rathnayake',
+        status:'online',
+        src: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
     },
     {
-        title:'Anura Adhikari',
+        name:'Anura Adhikari',
+        status:'online',
+        src: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
     },
     {
-        title:'Aravinthan Ramaraju',
+        name:'Aravinthan Ramaraju',
+        status:'online',
+        src: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
     },
     {
-        title:'Mohamed Shaffy',
+        name:'Mohamed Shaffy',
+        status:'online',
+        src: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
     },
     {
-        title:'Aishan Bamunawita',
+        name:'Aishan Bamunawita',
+        status:'online',
+        src: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+    },
+    {
+        name:'Aishan Bamunawita',
+        status:'online',
+        src: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+    },
+    {
+        name:'Aishan Bamunawita',
+        status:'online',
+        src: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+    },
+    {
+        name:'Aishan Bamunawita',
+        status:'online',
+        src: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+    },
+    {
+        name:'Aishan Bamunawita',
+        status:'online',
+        src: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
     }
     
 ]
 const RecentlyPlayed = () => {
+
+    const playerList = players.map(player =>(<Player player={player}/>))
     return (
-        <div>
-            Recently Played
+        <div className="recently-played-body">
+            <h3>Recently Played</h3>
+            <div className="player-list">{playerList}</div>
         </div>
-    );
+    )
 }
 
 export default RecentlyPlayed;

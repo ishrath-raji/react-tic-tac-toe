@@ -1,4 +1,4 @@
-import ".../App.css";
+import "../App";
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { Comment, Avatar, Button, List, Input, Rate } from "antd";

@@ -128,3 +128,26 @@
 }
 
 /*End - comment section*/
+
+/* Recently Played section */
+
+.recently-played-body{
+  padding: 2%;
+}
+.player-list{
+ overflow-y: scroll;
+ max-height: 300px;
+ max-width: 100%;
+ overflow-x: hidden;
+ 
+}
+.player-content{
+  padding: 2%;
+  margin: 2%;
+  box-shadow: 0 0 4px #C0B9D6;
+  text-align:justify
+  
+  
+  
+}
+
