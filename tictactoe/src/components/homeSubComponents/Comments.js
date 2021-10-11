@@ -1,15 +1,16 @@
-import ".../App.css";
+import "../../App.css";
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { Comment, Avatar, Button, List, Input, Rate } from "antd";
 
-const CommentList = ({ comments }) => (
-  <List
-    dataSource={comments}
-    itemLayout="horizontal"
-    renderItem={(props) => <Comment {...props} />}
-  />
-);
+// const CommentList = ({ comments }) => (
+//   // <List
+//   //   dataSource={comments}
+//   //   itemLayout="horizontal"
+//   //   renderItem={item => (
+//   //   )}
+//   // />
+// );
 
 class Comments extends React.Component {
   state = {
@@ -21,7 +22,6 @@ class Comments extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
 
-    console.log(this.state.value);
     if (!this.state.value) {
       return;
     }
@@ -86,7 +86,7 @@ class Comments extends React.Component {
             </Col>
           </Row>
           <Row className="comment-list">
-            <CommentList comments={comments} />
+            {/* <CommentList comments={comments} /> */}
           </Row>
         </Container>
       </div>
