@@ -162,3 +162,20 @@
   box-shadow: 0 0 4px #c0b9d6;
   text-align: justify;
 }
+.activity{
+  color:red;
+}
+
+.activity-status{
+  color:green;
+}
+
+.player-row{
+  display: flex;
+  justify-content: center;
+  align-items: center ;
+}
+
+.player-row h6{
+  margin-bottom: 0;
+}
