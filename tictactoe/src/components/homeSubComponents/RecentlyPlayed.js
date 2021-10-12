@@ -26,7 +26,7 @@ const players =[
     },
     {
         name:'Aishan Bamunawita',
-        status:'online',
+        status: '3mins ago',
         src: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
     },
     {
@@ -56,7 +56,7 @@ const RecentlyPlayed = () => {
     const playerList = players.map((player,index) =>(<Player key={index} player={player}/>))
     return (
         <div className="recently-played-body">
-            <h3>Recently Played</h3>
+            <h4>Recently Played</h4>
             <div className="player-list" >{playerList}</div>
         </div>
     )
