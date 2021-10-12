@@ -1,27 +1,43 @@
+/* eslint-disable react/jsx-pascal-case */
 import "../../App.css";
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { Comment, Avatar, Button, List, Input, Rate } from "antd";
+import { Avatar, Button, Input, Rate } from "antd";
 
-const CommentList = ({ comments }) => (
-  <List
-    dataSource={comments}
-    itemLayout="horizontal"
-    renderItem={(props) => <Comment {...props} />}
-  />
-);
+const CommentList = ({ comments }) => {
+  const listItems = comments.map((comment) => {
+    return (
+      <Container key={comment.author}>
+        <Row className="row comment">
+          <Col className="col-box comment avatar" xs={10} md={2}>
+            <Avatar src={comment.avatar} />
+          </Col>
+          <Col className="col-box" xs={6} md={10}>
+            <div>
+              <b>{comment.author}</b> {comment.rate}
+              <br />
+              {comment.content}
+            </div>
+          </Col>
+        </Row>
+      </Container>
+    );
+  });
+
+  return <React.Fragment>{listItems}</React.Fragment>;
+};
 
 class Comments extends React.Component {
   state = {
     comments: [],
     submitting: false,
     value: "",
+    commentListHeight: 0,
   };
 
   handleSubmit = (event) => {
     event.preventDefault();
 
-    console.log(this.state.value);
     if (!this.state.value) {
       return;
     }
@@ -40,7 +56,7 @@ class Comments extends React.Component {
           avatar:
             "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
           content: <p>{this.state.value}</p>,
-          rate: <Rate disable allowHalf defaultValue={4} />,
+          rate: <Rate disabled allowHalf defaultValue={4.5} />,
         },
       ],
     });
@@ -57,7 +73,7 @@ class Comments extends React.Component {
     return (
       <div className="comment-body">
         <h3>Comments & Review </h3>
-        <Container style={{ padding: "0" }}>
+        <Container style={{ padding: "0%" }}>
           <Row style={{ marginLeft: "0%", marginRight: "0%" }}>
             <Col className="col-box avatar" xs={10} md={2}>
               <Avatar
@@ -72,6 +88,7 @@ class Comments extends React.Component {
                     className="input-text"
                     onChange={this.handleChange}
                     value={value}
+                    placeholder="Comment"
                   />
                   <Button
                     htmlType="submit"
@@ -85,7 +102,7 @@ class Comments extends React.Component {
               </form>
             </Col>
           </Row>
-          <Row className="comment-list">
+          <Row className="row comment-list">
             <CommentList comments={comments} />
           </Row>
         </Container>
