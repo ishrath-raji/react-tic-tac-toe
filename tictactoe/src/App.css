@@ -42,7 +42,7 @@
 .tag-list li {
   margin-right: 2%;
   color: white;
-  background-color: #de5b59;
+  background-color: #FF615A;
   padding: 0 2% 0 2%;
   border-radius: 10px;
 }
@@ -111,16 +111,16 @@
     border: 1px solid black;
 }
 .menu-list .orange {
-    background-color: #de5b59;
+    background-color: #FF615A;
 }
 .menu-list .blue {
-    background-color: #60c5b5;
+    background-color: #4FC4B5;
 }
 .title-green {
-    color: #60c5b5;
+    color: #4FC4B5;
 }
 .title-orange {
-    color: #de5b59;
+    color: #FF615A;
 }
 .title {
     font-size: 250%;
