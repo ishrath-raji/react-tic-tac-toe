@@ -2,7 +2,8 @@
 import "../../App.css";
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { Avatar, Button, Input, Rate } from "antd";
+import { Avatar, Button, Rate } from "antd";
+import CommentPopup from "./CommentPopup";
 
 const CommentList = ({ comments }) => {
   const listItems = comments.map((comment) => {
@@ -32,11 +33,46 @@ class Comments extends React.Component {
     comments: [],
     submitting: false,
     value: "",
-    commentListHeight: 0,
+    popupData: [],
   };
 
-  handleSubmit = (event) => {
-    event.preventDefault();
+  // handleSubmit = (event) => {
+  //   event.preventDefault();
+
+  //   if (!this.state.value) {
+  //     return;
+  //   }
+
+  //   this.setState({
+  //     submitting: true,
+  //   });
+
+  //   this.setState({
+  //     submitting: false,
+  //     value: "",
+  //     comments: [
+  //       ...this.state.comments,
+  //       {
+  //         author: "User name",
+  //         avatar:
+  //           "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
+  //         content: <p>{this.state.value}</p>,
+  //         rate: <Rate disabled allowHalf defaultValue={4.5} />,
+  //       },
+  //     ],
+  //   });
+  // };
+
+  // handleChange = (e) => {
+  //   this.setState({
+  //     value: e.target.value,
+  //   });
+  // };
+
+  handlePopupData = (popupData) => {
+    this.setState({
+      popupData: popupData,
+    });
 
     if (!this.state.value) {
       return;
@@ -55,21 +91,21 @@ class Comments extends React.Component {
           author: "User name",
           avatar:
             "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
-          content: <p>{this.state.value}</p>,
-          rate: <Rate disabled allowHalf defaultValue={4.5} />,
+          content: <p>{this.state.popupData.feedback}</p>,
+          rate: (
+            <Rate
+              disabled
+              allowHalf
+              defaultValue={this.state.popupData.rateValue}
+            />
+          ),
         },
       ],
     });
   };
 
-  handleChange = (e) => {
-    this.setState({
-      value: e.target.value,
-    });
-  };
-
   render() {
-    const { comments, submitting, value } = this.state;
+    const { comments } = this.state;
     return (
       <div className="comment-body">
         <h3>Comments & Review </h3>
@@ -84,20 +120,14 @@ class Comments extends React.Component {
             <Col className="col-box text" xs={6} md={10}>
               <form>
                 <div className="input-type-box">
-                  <Input
+                  {/* <Input
                     className="input-text"
                     onChange={this.handleChange}
                     value={value}
                     placeholder="Comment"
-                  />
-                  <Button
-                    htmlType="submit"
-                    loading={submitting}
-                    onClick={this.handleSubmit}
-                    className="comment-button"
-                  >
-                    Post
-                  </Button>
+                  /> */}
+                  <CommentPopup handlePopupData={this.handlePopupData} />
+                  <Button className="comment-button">Post</Button>
                 </div>
               </form>
             </Col>

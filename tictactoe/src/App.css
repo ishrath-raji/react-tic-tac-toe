@@ -120,7 +120,8 @@
 }
 
 .col-box.avatar {
-  padding-left: 20px;
+  display: flex;
+  justify-content: center;
 }
 
 .row.comment-list {
@@ -141,6 +142,14 @@
 
 .col-box.comment.avatar {
   padding: 2% 0 0 2%;
+}
+
+.popup {
+  min-width: 650px;
+  min-height: 450px;
+  background-color: white;
+  border-radius: 5%;
+  padding: 2%;
 }
 
 /*End - comment section*/
