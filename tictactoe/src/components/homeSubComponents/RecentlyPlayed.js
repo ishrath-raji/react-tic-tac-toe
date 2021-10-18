@@ -21,7 +21,7 @@ const players =[
     },
     {
         name:'Mohamed Shaffy',
-        status:'online',
+        status:'offline',
         src: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
     },
     {
@@ -36,7 +36,7 @@ const players =[
     },
     {
         name:'Aishan Bamunawita',
-        status:'online',
+        status:'away',
         src: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
     },
     {
@@ -53,11 +53,11 @@ const players =[
 ]
 const RecentlyPlayed = () => {
 
-    const playerList = players.map(player =>(<Player player={player}/>))
+    const playerList = players.map((player,index) =>(<Player key={index} player={player}/>))
     return (
         <div className="recently-played-body">
             <h3>Recently Played</h3>
-            <div className="player-list">{playerList}</div>
+            <div className="player-list" >{playerList}</div>
         </div>
     )
 }
