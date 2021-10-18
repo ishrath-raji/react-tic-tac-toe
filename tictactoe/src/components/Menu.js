@@ -22,13 +22,13 @@ const Menu = () => {
         <img src={logo} alt="tictactoe-logo" width="260px" />
       </div>
       <div className="menu-list">
-        <Link style={style} to="/">
+        <Link style={style} to="/gamehub/tictactoe/play/singleplayer">
           <button className="orange">SINGLE PLAYER</button>
         </Link>
-        <Link style={style} to="/">
+        <Link style={style} to="/gamehub/tictactoe/play">
           <button className="blue">MULTI PLAYER</button>
         </Link>
-        <Link style={style} to="/">
+        <Link style={style} to="/gamehub/tictactoe/play">
           <button className="orange">OPTIONS</button>
         </Link>
         <Link style={style} to="/gamehub/tictactoe">
