@@ -8,24 +8,25 @@ const { TextArea } = Input;
 
 class CommentPopup extends React.Component {
   state = {
-    rate: 0,
+    rate: 0.0,
     comment: "",
     submitting: false,
     popupData: [],
   };
 
   handleRate = (value) => {
-    console.log(value);
     this.setState({ rate: value });
+    this.state.rate = value;
   };
 
   handleCommentChange = (e) => {
     this.setState({
       comment: e.target.value,
     });
+    this.state.comment = e.target.value;
   };
 
-  handleSubmit = (event) => {
+  handleSubmit = () => {
     this.setState({
       submitting: true,
     });
@@ -38,7 +39,13 @@ class CommentPopup extends React.Component {
         },
       ],
     });
+    this.state.popupData.rateValue = this.state.rate;
+    this.state.popupData.feedback = this.state.comment;
     this.props.handlePopupData(this.state.popupData);
+    this.setState({
+      comment: "",
+      rate: 0,
+    });
   };
 
   render() {
@@ -96,18 +103,19 @@ class CommentPopup extends React.Component {
                   </form>
                 </div>
               </Row>
-              <Row>
+              <Row onClick={close}>
                 <Button
+                  htmltype="submit"
+                  onClick={this.handleSubmit}
+                  className="comment-button"
+                  loading={submitting.toString()}
                   style={{
                     margin: "2% 2%",
                     width: "96%",
                     backgroundColor: "#de5b59",
+                    color: "white",
                     border: "none",
                   }}
-                  htmlType="submit"
-                  loading={submitting}
-                  onClick={(this.handleSubmit, close)}
-                  className="comment-button"
                 >
                   Post
                 </Button>
