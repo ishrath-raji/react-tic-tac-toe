@@ -35,6 +35,7 @@ class Comments extends React.Component {
     value: "",
     commentListHeight: 0,
     modalVisible: false,
+    rate: 0,
   };
 
   setModalVisible(modalVisible) {
@@ -55,7 +56,6 @@ class Comments extends React.Component {
     this.setState({
       submitting: false,
       value: "",
-      rate: 0,
       comments: [
         ...this.state.comments,
         {
