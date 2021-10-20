@@ -1,13 +1,14 @@
-/* eslint-disable react/jsx-pascal-case */
 import "../../App.css";
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { Avatar, Button, Input, Rate } from "antd";
+import { Avatar, Button, Input, Rate, Modal } from "antd";
+
+const { TextArea } = Input;
 
 const CommentList = ({ comments }) => {
   const listItems = comments.map((comment) => {
     return (
-      <Container key={comment.author}>
+      <Container key={comment.content}>
         <Row className="row comment">
           <Col className="col-box comment avatar" xs={10} md={2}>
             <Avatar src={comment.avatar} />
@@ -33,10 +34,16 @@ class Comments extends React.Component {
     submitting: false,
     value: "",
     commentListHeight: 0,
+    modalVisible: false,
+    rate: 0,
   };
 
-  handleSubmit = (event) => {
-    event.preventDefault();
+  setModalVisible(modalVisible) {
+    this.setState({ modalVisible });
+  }
+
+  onClickOK = (modalVisible) => {
+    this.setState({ modalVisible });
 
     if (!this.state.value) {
       return;
@@ -56,9 +63,15 @@ class Comments extends React.Component {
           avatar:
             "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
           content: <p>{this.state.value}</p>,
-          rate: <Rate disabled allowHalf defaultValue={4.5} />,
+          rate: <Rate disabled allowHalf defaultValue={this.state.rate} />,
         },
       ],
+    });
+  };
+
+  handleRate = (e) => {
+    this.setState({
+      rate: e,
     });
   };
 
@@ -69,7 +82,7 @@ class Comments extends React.Component {
   };
 
   render() {
-    const { comments, submitting, value } = this.state;
+    const { comments, submitting, value, rate } = this.state;
     return (
       <div className="comment-body">
         <h4>Comments & Review </h4>
@@ -86,14 +99,52 @@ class Comments extends React.Component {
                 <div className="input-type-box">
                   <Input
                     className="input-text"
-                    onChange={this.handleChange}
-                    value={value}
+                    readOnly
                     placeholder="Comment"
+                    onClick={() => this.setModalVisible(true)}
                   />
+                  <Modal
+                    title={<h3>Comments and Reaviews</h3>}
+                    centered
+                    visible={this.state.modalVisible}
+                    onOk={() => this.onClickOK(false)}
+                    onCancel={() => this.setModalVisible(false)}
+                    okText="Post"
+                  >
+                    <Container>
+                      <Row>
+                        <Col xs={12} md={1}>
+                          <Avatar
+                            src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                            alt="user_name"
+                          />
+                        </Col>
+                        <Col xs={6} md={6}>
+                          User Name
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Rate
+                          enable
+                          allowHalf
+                          defaultValue={rate}
+                          onChange={this.handleRate}
+                        />
+                      </Row>
+                      <Row>
+                        <TextArea
+                          rows={7}
+                          onChange={this.handleChange}
+                          value={value}
+                          placeholder="Comment"
+                        />
+                      </Row>
+                    </Container>
+                  </Modal>
                   <Button
                     htmlType="submit"
                     loading={submitting}
-                    onClick={this.handleSubmit}
+                    onClick={this.onClickOK}
                     className="comment-button"
                   >
                     Post

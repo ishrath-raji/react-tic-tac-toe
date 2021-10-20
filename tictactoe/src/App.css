@@ -49,7 +49,7 @@
 .tag-list li {
   margin-right: 2%;
   color: white;
-  background-color: #FF615A;
+  background-color: #ff615a;
   padding: 0 2% 0 2%;
   border-radius: 10px;
 }
@@ -127,19 +127,19 @@
 }
 
 .menu-list .orange {
-  background-color: #FF615A;
+  background-color: #ff615a;
 }
 
 .menu-list .blue {
-  background-color: #4FC4B5;
+  background-color: #4fc4b5;
 }
 
 .title-green {
-  color: #4FC4B5;
+  color: #4fc4b5;
 }
 
 .title-orange {
-  color: #FF615A;
+  color: #ff615a;
 }
 
 .title {
@@ -160,7 +160,6 @@
 }
 
 /* End - play page menu list  */
-
 
 /*Start - Comment section*/
 .comment-body {
@@ -277,7 +276,7 @@
   display: flex;
   width: 390px;
   flex-wrap: wrap;
-  background-color: #4FC4B5;
+  background-color: #4fc4b5;
 }
 
 .square {
@@ -286,7 +285,7 @@
   border: 0.25px solid white;
   font-size: 800%;
   font-weight: 700;
-  color: #FF615A;
+  color: #ff615a;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -311,7 +310,7 @@
   border-right: 0;
 }
 
-.square:nth-child(3n+1) {
+.square:nth-child(3n + 1) {
   border-left: 0;
 }
 
