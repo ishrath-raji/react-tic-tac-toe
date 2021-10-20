@@ -103,44 +103,6 @@ class Comments extends React.Component {
                     placeholder="Comment"
                     onClick={() => this.setModalVisible(true)}
                   />
-                  <Modal
-                    title={<h3>Comments and Reaviews</h3>}
-                    centered
-                    visible={this.state.modalVisible}
-                    onOk={() => this.onClickOK(false)}
-                    onCancel={() => this.setModalVisible(false)}
-                    okText="Post"
-                  >
-                    <Container>
-                      <Row>
-                        <Col xs={12} md={1}>
-                          <Avatar
-                            src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-                            alt="user_name"
-                          />
-                        </Col>
-                        <Col xs={6} md={6}>
-                          User Name
-                        </Col>
-                      </Row>
-                      <Row>
-                        <Rate
-                          enable
-                          allowHalf
-                          defaultValue={rate}
-                          onChange={this.handleRate}
-                        />
-                      </Row>
-                      <Row>
-                        <TextArea
-                          rows={7}
-                          onChange={this.handleChange}
-                          value={value}
-                          placeholder="Comment"
-                        />
-                      </Row>
-                    </Container>
-                  </Modal>
                   <Button
                     htmlType="submit"
                     loading={submitting}
@@ -157,6 +119,50 @@ class Comments extends React.Component {
             <CommentList comments={comments} />
           </Row>
         </Container>
+        <Modal
+          centered
+          visible={this.state.modalVisible}
+          onOk={() => this.onClickOK(false)}
+          okText="Post"
+          width="728px"
+          onCancel={() => this.setModalVisible(false)}
+          className="modal-comments"
+        >
+          <Row>
+            <h3>Comments and Reviews</h3>
+            <p />
+          </Row>
+          <Row>
+            <Col xs={12} md={1}>
+              <Avatar
+                size={55}
+                src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                alt="user_name"
+              />
+            </Col>
+            <Col xs={6} md={6} className="user-name">
+              <p>User Name</p>
+            </Col>
+          </Row>
+          <Row className="row comment-popup-rate">
+            <Rate
+              enable
+              allowHalf
+              defaultValue={rate}
+              onChange={this.handleRate}
+              className="popup-rate"
+            />
+          </Row>
+          <Row className="row comment-popup-text">
+            <TextArea
+              size="large"
+              rows={7}
+              onChange={this.handleChange}
+              value={value}
+              placeholder="Comment"
+            />
+          </Row>
+        </Modal>
       </div>
     );
   }

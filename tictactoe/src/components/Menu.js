@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../icons/tic-tac-toe-logo.png";
 import { Link } from "react-router-dom";
-import { Modal, Row, Col } from "antd";
+import { Modal, Row, Col, Radio } from "antd";
 
 const style = {
   width: "100%",
@@ -14,10 +14,22 @@ const style = {
 class Menu extends React.Component {
   state = {
     modalVisible: false,
+    onDifficulty: false,
+    onPlayer: false,
   };
 
   setModalVisible(modalVisible) {
     this.setState({ modalVisible });
+  }
+
+  setDifficulty(onDifficulty) {
+    this.setState({ onDifficulty: onDifficulty });
+    console.log("true diff");
+  }
+
+  setSymbol(onPlayer) {
+    this.setState({ onPlayer: onPlayer });
+    console.log("true player");
   }
 
   render() {
@@ -51,33 +63,47 @@ class Menu extends React.Component {
             footer={null}
             width="728px"
             onCancel={() => this.setModalVisible(false)}
+            className="modal single-player"
           >
             <div>
               <Row>
                 <h5 className="modal-title">SELECT DIFFICULTY LEVEL</h5>
               </Row>
               <Row className="row button">
-                <Col className="col button left">
-                  <Link to="/gamehub/tictactoe/play/singleplayer">
-                    <button className="button difficulty easy">Easy</button>
-                  </Link>
-                </Col>
-                <Col className="col button">
-                  <button className="button difficulty hard">Hard</button>
-                </Col>
+                <Radio.Group
+                  onChange={() => {
+                    this.setDifficulty(true);
+                  }}
+                >
+                  {/* <Col className="col button left"> */}
+                  <Radio.Button value="easy" className="button difficulty easy">
+                    Easy
+                  </Radio.Button>
+                  {/* <Col className="col button"> */}
+                  <Radio.Button value="hard" className="button difficulty hard">
+                    Hard
+                  </Radio.Button>
+                </Radio.Group>
               </Row>
               <Row>
                 <h5 className="modal-title">SELECT SYMBOL</h5>
               </Row>
               <Row className="row button">
-                <Col className="col button left">
-                  <Link to="/gamehub/tictactoe/play/singleplayer">
-                    <button className="button symbol X">X</button>
-                  </Link>
-                </Col>
-                <Col className="col button">
-                  <button className="button symbol O">O</button>
-                </Col>
+                <Radio.Group
+                  onChange={() => {
+                    this.setSymbol(true);
+                  }}
+                >
+                  {/* <Col className="col button left"> */}
+
+                  <Radio.Button value="X" className="button symbol X">
+                    X
+                  </Radio.Button>
+                  {/* <Col className="col button"> */}
+                  <Radio.Button value="O" className="button symbol O">
+                    O
+                  </Radio.Button>
+                </Radio.Group>
               </Row>
             </div>
           </Modal>
