@@ -1,24 +1,21 @@
 import "../App.css";
 import React from "react";
-import {Card, Avatar} from "antd";
-
-const style = {
-    width: 300 ,
-    height: 350,
-    paddingLeft: 70    
-    }
+import {Avatar} from "antd";
+import {Row} from "react-bootstrap";
 
 
 const PlayerCard = () => {
 
     // need to use useffect 
     return (
-       <div className="player-card">
-            <Card style={style}>
-            <p>Player Content</p>
-            <p></p>
-            <p></p>
-            </Card>
+       <div className="player-card-container">
+            <div className="player-card">
+                <Row>heh</Row>
+                <Row>heh</Row>
+                <Row>heh</Row>
+
+
+            </div>
        </div>
     )
 }

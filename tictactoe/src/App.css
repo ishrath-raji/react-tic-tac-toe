@@ -346,11 +346,16 @@
 }
 
 /*player card*/
-.player-card{
+.player-card-container{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 750px;
   
+}
+.player-card{
+  width: 300px;
+  height: 350px;
+  background-color: white;
 }
