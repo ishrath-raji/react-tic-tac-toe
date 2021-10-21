@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../icons/tic-tac-toe-logo.png";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Modal, Row, Radio } from "antd";
 
 const style = {
@@ -11,18 +11,10 @@ const style = {
   alignItems: "center",
 };
 
-var difficulty = false;
-var playerSymbol = false;
-
-function redirectingPage() {
-  <Redirect to="/gamehub/tictactoe/play/singleplayer"></Redirect>;
-}
-
 class Menu extends React.Component {
   state = {
     modalVisible: false,
     onDifficulty: false,
-    onPlayer: false,
   };
 
   setModalVisible(modalVisible) {
@@ -31,12 +23,6 @@ class Menu extends React.Component {
 
   setDifficulty(onDifficulty) {
     this.setState({ onDifficulty: onDifficulty });
-    console.log("true diff");
-  }
-
-  setSymbol(onPlayer) {
-    this.setState({ onPlayer: onPlayer });
-    console.log("true player");
   }
 
   render() {
@@ -82,11 +68,9 @@ class Menu extends React.Component {
                     this.setDifficulty(true);
                   }}
                 >
-                  {/* <Col className="col button left"> */}
                   <Radio.Button value="easy" className="button difficulty easy">
                     Easy
                   </Radio.Button>
-                  {/* <Col className="col button"> */}
                   <Radio.Button value="hard" className="button difficulty hard">
                     Hard
                   </Radio.Button>
@@ -95,7 +79,6 @@ class Menu extends React.Component {
               <Row>
                 <h5 className="modal-title">SELECT SYMBOL</h5>
               </Row>
-
               <Link
                 to={
                   this.state.onDifficulty
@@ -104,18 +87,10 @@ class Menu extends React.Component {
                 }
               >
                 <Row className="row button">
-                  <Radio.Group
-                    onChange={() => {
-                      this.setSymbol(true);
-                    }}
-                  >
-                    {/* <Col className="col button left"> */}
-
+                  <Radio.Group>
                     <Radio.Button value="X" className="button symbol X">
                       X
                     </Radio.Button>
-                    {/* <Col className="col button"> */}
-
                     <Radio.Button value="O" className="button symbol O">
                       O
                     </Radio.Button>
