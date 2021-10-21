@@ -100,7 +100,6 @@ class GameBoard extends Component {
               ? "X's turn"
               : "O's turn"
             : this.state.winnerLine}
-          {/* {this.gameState.turn === "X" ? "X's turn" : "O's turn"} */}
         </div>
         <div id="board" onClick={(e) => this.clicked(e.target)}>
           <div className="square" data-square="0"></div>
