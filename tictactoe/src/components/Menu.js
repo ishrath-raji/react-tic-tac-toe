@@ -2,7 +2,6 @@ import React from "react";
 import logo from "../icons/tic-tac-toe-logo.png";
 import { Link, Redirect } from "react-router-dom";
 import { Modal, Row, Radio } from "antd";
-import SinglePlayer from "./SinglePlayer";
 
 const style = {
   width: "100%",
@@ -38,20 +37,6 @@ class Menu extends React.Component {
   setSymbol(onPlayer) {
     this.setState({ onPlayer: onPlayer });
     console.log("true player");
-  }
-
-  Clicked(button) {
-    if (button === "easy" || button === "hard") {
-      difficulty = true;
-    }
-    if (button === "X" || button === "O") {
-      playerSymbol = true;
-    }
-
-    if (playerSymbol && difficulty) {
-      console.log("all true");
-      redirectingPage();
-    }
   }
 
   render() {
@@ -98,23 +83,11 @@ class Menu extends React.Component {
                   }}
                 >
                   {/* <Col className="col button left"> */}
-                  <Radio.Button
-                    value="easy"
-                    className="button difficulty easy"
-                    onClick={() => {
-                      this.Clicked("easy");
-                    }}
-                  >
+                  <Radio.Button value="easy" className="button difficulty easy">
                     Easy
                   </Radio.Button>
                   {/* <Col className="col button"> */}
-                  <Radio.Button
-                    value="hard"
-                    className="button difficulty hard"
-                    onClick={() => {
-                      this.Clicked("hard");
-                    }}
-                  >
+                  <Radio.Button value="hard" className="button difficulty hard">
                     Hard
                   </Radio.Button>
                 </Radio.Group>
@@ -122,36 +95,33 @@ class Menu extends React.Component {
               <Row>
                 <h5 className="modal-title">SELECT SYMBOL</h5>
               </Row>
-              <Row className="row button">
-                <Radio.Group
-                  onChange={() => {
-                    this.setSymbol(true);
-                  }}
-                >
-                  {/* <Col className="col button left"> */}
 
-                  <Radio.Button
-                    value="X"
-                    className="button symbol X"
-                    onClick={() => {
-                      this.Clicked("X");
+              <Link
+                to={
+                  this.state.onDifficulty
+                    ? "/gamehub/tictactoe/play/singleplayer"
+                    : "/gamehub/tictactoe/play"
+                }
+              >
+                <Row className="row button">
+                  <Radio.Group
+                    onChange={() => {
+                      this.setSymbol(true);
                     }}
                   >
-                    X
-                  </Radio.Button>
-                  {/* <Col className="col button"> */}
+                    {/* <Col className="col button left"> */}
 
-                  <Radio.Button
-                    value="O"
-                    className="button symbol O"
-                    onClick={() => {
-                      this.Clicked("O");
-                    }}
-                  >
-                    O
-                  </Radio.Button>
-                </Radio.Group>
-              </Row>
+                    <Radio.Button value="X" className="button symbol X">
+                      X
+                    </Radio.Button>
+                    {/* <Col className="col button"> */}
+
+                    <Radio.Button value="O" className="button symbol O">
+                      O
+                    </Radio.Button>
+                  </Radio.Group>
+                </Row>
+              </Link>
             </div>
           </Modal>
         </div>

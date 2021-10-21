@@ -360,7 +360,6 @@
   font-size: 150%;
 }
 
-<<<<<<< HEAD
 /*Start - single player Modal */
 
 .modal .ant-modal-content {
@@ -457,7 +456,6 @@
 }
 
 /* End - Modal*/
-=======
 /*gap*/
 .gap{
   display: grid;
@@ -474,4 +472,3 @@
   min-height: 750px;
   
 }
->>>>>>> 383afb9a4ac025200a52c1d2a49bf13ad917b4b7
