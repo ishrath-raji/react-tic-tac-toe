@@ -67,7 +67,6 @@ class Comments extends React.Component {
           rate: <Rate disabled allowHalf defaultValue={this.state.rate} />,
         },
       ],
-      rate: 0,
     });
   };
 
