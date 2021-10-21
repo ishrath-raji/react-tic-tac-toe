@@ -1,7 +1,8 @@
 import React from "react";
 import logo from "../icons/tic-tac-toe-logo.png";
-import { Link } from "react-router-dom";
-import { Modal, Row, Col, Radio } from "antd";
+import { Link, Redirect } from "react-router-dom";
+import { Modal, Row, Radio } from "antd";
+import SinglePlayer from "./SinglePlayer";
 
 const style = {
   width: "100%",
@@ -10,6 +11,13 @@ const style = {
   justifyContent: "center",
   alignItems: "center",
 };
+
+var difficulty = false;
+var playerSymbol = false;
+
+function redirectingPage() {
+  <Redirect to="/gamehub/tictactoe/play/singleplayer"></Redirect>;
+}
 
 class Menu extends React.Component {
   state = {
@@ -30,6 +38,20 @@ class Menu extends React.Component {
   setSymbol(onPlayer) {
     this.setState({ onPlayer: onPlayer });
     console.log("true player");
+  }
+
+  Clicked(button) {
+    if (button === "easy" || button === "hard") {
+      difficulty = true;
+    }
+    if (button === "X" || button === "O") {
+      playerSymbol = true;
+    }
+
+    if (playerSymbol && difficulty) {
+      console.log("all true");
+      redirectingPage();
+    }
   }
 
   render() {
@@ -76,11 +98,23 @@ class Menu extends React.Component {
                   }}
                 >
                   {/* <Col className="col button left"> */}
-                  <Radio.Button value="easy" className="button difficulty easy">
+                  <Radio.Button
+                    value="easy"
+                    className="button difficulty easy"
+                    onClick={() => {
+                      this.Clicked("easy");
+                    }}
+                  >
                     Easy
                   </Radio.Button>
                   {/* <Col className="col button"> */}
-                  <Radio.Button value="hard" className="button difficulty hard">
+                  <Radio.Button
+                    value="hard"
+                    className="button difficulty hard"
+                    onClick={() => {
+                      this.Clicked("hard");
+                    }}
+                  >
                     Hard
                   </Radio.Button>
                 </Radio.Group>
@@ -96,11 +130,24 @@ class Menu extends React.Component {
                 >
                   {/* <Col className="col button left"> */}
 
-                  <Radio.Button value="X" className="button symbol X">
+                  <Radio.Button
+                    value="X"
+                    className="button symbol X"
+                    onClick={() => {
+                      this.Clicked("X");
+                    }}
+                  >
                     X
                   </Radio.Button>
                   {/* <Col className="col button"> */}
-                  <Radio.Button value="O" className="button symbol O">
+
+                  <Radio.Button
+                    value="O"
+                    className="button symbol O"
+                    onClick={() => {
+                      this.Clicked("O");
+                    }}
+                  >
                     O
                   </Radio.Button>
                 </Radio.Group>
