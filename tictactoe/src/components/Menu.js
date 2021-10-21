@@ -11,13 +11,6 @@ const style = {
   alignItems: "center",
 };
 
-var difficulty = false;
-var playerSymbol = false;
-
-function redirectingPage() {
-  <Redirect to="/gamehub/tictactoe/play/singleplayer"></Redirect>;
-}
-
 class Menu extends React.Component {
   state = {
     modalVisible: false,
