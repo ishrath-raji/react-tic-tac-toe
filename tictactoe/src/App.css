@@ -226,6 +226,28 @@
   padding: 2% 0 0 2%;
 }
 
+/*Modal - Comment*/
+
+.modal-comments .ant-modal-content {
+  height: auto;
+  padding: 2%;
+  border-radius: 2%;
+}
+
+.user-name p {
+  margin-top: 2%;
+  font-size: 25px;
+}
+
+.row.comment-popup-rate,
+.row.comment-popup-text {
+  padding: 0 2% 1% 2%;
+}
+
+.popup-rate {
+  font-size: 40px;
+}
+
 /*End - comment section*/
 
 /* Recently Played section */
@@ -247,13 +269,13 @@
   box-shadow: 0 0 4px #c0b9d6;
   text-align: justify;
 }
-.activity{
-  color:red;
+.activity {
+  color: red;
   padding-left: 7%;
 }
 
-.activity-status{
-  color:green;
+.activity-status {
+  color: green;
   padding-left: 7%;
 }
 
@@ -338,11 +360,106 @@
   font-size: 150%;
 }
 
+/*Start - single player Modal */
+
+.modal .ant-modal-content {
+  padding: 5%;
+  height: 538px;
+  border-radius: 2%;
+  margin-top: 25%;
+}
+
+.modal .anticon svg {
+  font-size: 23px;
+}
+.modal-title {
+  color: #8d8d8d;
+  font-size: 25px;
+}
+
+.button {
+  font-size: 35px;
+  color: white;
+  width: 244.5px;
+  border: none;
+  height: 75px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button.difficulty {
+  background-color: #ff615a;
+}
+
+.button.difficulty:hover {
+  background-color: #ff7c75;
+  color: white;
+}
+
+.button.difficulty.ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+  color: white;
+  background-color: #e72d25;
+}
+
+.button.difficulty.easy {
+  border-radius: 30px 0 0 30px;
+  border-right: 1px solid white;
+}
+
+.button.difficulty.hard {
+  border-radius: 0 30px 30px 0;
+  border-left: 1px solid white;
+}
+
+.button.symbol {
+  background-color: #4fc4b5;
+}
+
+.button.symbol:hover {
+  background-color: #4fdfcd;
+  color: white;
+}
+
+.button.symbol.ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+  color: white;
+  background-color: #379080;
+}
+.button.symbol.X {
+  border-radius: 30px 0 0 30px;
+  border-right: 1px solid white;
+}
+
+.button.symbol.O {
+  border-radius: 0 30px 30px 0;
+  border-left: 1px solid white;
+}
+
+.row.button {
+  width: 100%;
+  padding: 0 9.5%;
+  margin: 9% 0;
+}
+
+.col.button {
+  padding: 0%;
+}
+
+.col.button.left {
+  display: flex;
+  justify-content: right;
+}
+
+.ant-checkbox .ant-checkbox-inner {
+  background-color: none;
+  border: none;
+}
+
+/* End - Modal*/
 /*gap*/
-.gap{
+.gap {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  
 }
 
 /*player card*/
@@ -352,7 +469,6 @@
   justify-content: center;
   align-items: center;
   min-height: 750px;
-  
 }
 .player-card{
   width: 300px;
