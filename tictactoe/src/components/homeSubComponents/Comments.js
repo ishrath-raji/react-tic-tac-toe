@@ -67,7 +67,6 @@ class Comments extends React.Component {
           rate: <Rate disabled allowHalf defaultValue={this.state.rate} />,
         },
       ],
-      rate: 0,
     });
   };
 
@@ -127,7 +126,7 @@ class Comments extends React.Component {
           onOk={() => this.onClickOK(false)}
           okText="Post"
           width="728px"
-          onCancel={() => this.setModalVisible(false)}
+          onCancel={(e) => this.setModalVisible(false, e)}
           className="modal-comments"
         >
           <Row>
