@@ -85,7 +85,7 @@ class Comments extends React.Component {
     const { comments, submitting, value, rate } = this.state;
     return (
       <div className="comment-body">
-        <h3>Comments & Review </h3>
+        <h4>Comments & Review </h4>
         <Container style={{ padding: "0%" }}>
           <Row style={{ marginLeft: "0%", marginRight: "0%" }}>
             <Col className="col-box avatar" xs={10} md={2}>

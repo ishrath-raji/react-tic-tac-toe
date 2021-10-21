@@ -1,9 +1,19 @@
+import "../App.css";
 import React from "react";
 import { Container, Col, Row } from "react-bootstrap";
 import GameBoard from "../singlePlayerSubComponents/GameBoard";
+import PlayerCard from "../singlePlayerSubComponents/PlayerCard";
+import logo from "../icons/tic-tac-toe-logo.png";
+import { Link } from "react-router-dom";
+import {Card} from "antd";
+
 
 const style = {
-  border: "1px solid black",
+  display: "grid",
+  gridTemplateColumns:" 1fr 1fr",
+  gridColumnGap:"35px",
+  justifyContent: "center",
+  alignItems: "center",
 };
 
 const SinglePlayer = () => {
@@ -11,13 +21,32 @@ const SinglePlayer = () => {
     <div>
       <Container fluid={true}>
         <Row>
-          <Col style={style} md={4}>
-            Logo
+          <Col  md={4}>
+          <div className="menu-container">
+            <div className="title">
+            <span className="title-green">Tic</span>-
+            <span className="title-orange">Tac</span>-
+            <span className="title-green">Toe</span>
+          </div>
+          <div className="title-logo">
+            <img src={logo} alt="tictactoe-logo" width="260px" />
+          </div>
+          <div className="menu-list">
+          <Row className="gap">
+            <Link style={style} to="/gamehub/tictactoe/play">
+              <button className="orange">MENU</button>
+            </Link>
+            <Link style={style} to="/gamehub/tictactoe">
+              <button className="blue">EXIT</button>
+            </Link>
+          </Row>
+          </div>
+        </div>
           </Col>
-          <Col style={style} md={4}>
-            Player Info
+          <Col  md={4}>
+            <PlayerCard />
           </Col>
-          <Col style={style} md={4}>
+          <Col  md={4}>
             <GameBoard />
           </Col>
         </Row>

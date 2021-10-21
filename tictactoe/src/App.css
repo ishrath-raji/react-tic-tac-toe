@@ -269,13 +269,14 @@
   box-shadow: 0 0 4px #c0b9d6;
   text-align: justify;
 }
-
-.activity {
-  color: red;
+.activity{
+  color:red;
+  padding-left: 7%;
 }
 
-.activity-status {
-  color: green;
+.activity-status{
+  color:green;
+  padding-left: 7%;
 }
 
 .player-row {
@@ -359,6 +360,7 @@
   font-size: 150%;
 }
 
+<<<<<<< HEAD
 /*Start - single player Modal */
 
 .modal .ant-modal-content {
@@ -455,3 +457,21 @@
 }
 
 /* End - Modal*/
+=======
+/*gap*/
+.gap{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  
+}
+
+/*player card*/
+.player-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 750px;
+  
+}
+>>>>>>> 383afb9a4ac025200a52c1d2a49bf13ad917b4b7
