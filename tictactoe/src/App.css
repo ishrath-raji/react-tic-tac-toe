@@ -380,9 +380,9 @@
 .button {
   font-size: 35px;
   color: white;
-  width: 244.5px;
+  width: 230px;
   border: none;
-  height: 75px;
+  height: 65px;
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -437,17 +437,8 @@
 
 .row.button {
   width: 100%;
-  padding: 0 9.5%;
+  padding: 0 12%;
   margin: 9% 0;
-}
-
-.col.button {
-  padding: 0%;
-}
-
-.col.button.left {
-  display: flex;
-  justify-content: right;
 }
 
 .ant-checkbox .ant-checkbox-inner {
