@@ -337,3 +337,20 @@
 #match-type {
   font-size: 150%;
 }
+
+/*gap*/
+.gap{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  
+}
+
+/*player card*/
+.player-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 750px;
+  
+}

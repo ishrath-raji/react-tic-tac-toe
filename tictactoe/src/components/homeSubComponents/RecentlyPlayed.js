@@ -3,7 +3,7 @@ import Player from './Player';
 import "../App";
 
 
-const players =[
+export const players =[
     {
         name:'Achini Rathnayake',
         status:'online',
