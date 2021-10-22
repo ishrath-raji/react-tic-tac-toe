@@ -8,42 +8,50 @@ export const players =[
         name:'Achini Rathnayake',
         status:'online',
         src: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
-        title:"Software Developer"
+        title:"Software Developer",
+
     },
     {
         name:'Anura Adhikari',
         status:'online',
         src: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
         title:"Tech Lead",
-        tags:"hyper, gaming buddy"
+        email:"something@99x.io",
+        tel:"0777145778"
+        
+
     },
     {
         name:'Aravinthan Ramaraju',
         status:'online',
         src: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
         title:"Tech Lead",
-        tags:"hyper, gaming buddy"
+        email:"something@99x.io",
+        tel:"0777145778"
     },
     {
         name:'Mohamed Shaffy',
         status:'offline',
         src: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
         title:"Tech Lead",
-        tags:"hyper, gaming buddy"
+        email:"something@99x.io",
+        tel:"0777145778"
     },
     {
         name:'Aishan Bamunawita',
         status: '3mins ago',
         src: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
         title:"Tech Lead",
-        tags:"hyper, gaming buddy"
+        email:"something@99x.io",
+        tel:"0777145778"
     },
     {
         name:'Aishan Bamunawita',
         status:'online',
         src: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
         title:"Tech Lead",
-        tags:"hyper, gaming buddy"
+        email:"something@99x.io",
+        tel:"0777145778"    
     }
     
 ]

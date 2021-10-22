@@ -9,7 +9,8 @@ const PlayerCard = () => {
    const[playerName, setPlayerName] = useState("");
    const[playerAvatar, setPlayerAvatar] = useState("");
    const[playerTitle, setPlayerTitle] = useState("");
-   const[playerTags, setPlayerTags] = useState("");
+   const[playerEmail, setPlayerEmail] = useState("");
+   const[playerTel,setPlayerTel] = useState("");
    const number =  Math.floor(Math.random()* (players.length - 1) + 1);
 
     // need to use useffect 
@@ -19,7 +20,8 @@ const PlayerCard = () => {
           setPlayerAvatar(profile.src)
           setPlayerName(profile.name)
           setPlayerTitle(profile.title)
-          setPlayerTags(profile.tags)
+          setPlayerEmail(profile.email)
+          setPlayerTel(profile.tel)
        }catch(error){
           console.log(error)
        }
@@ -35,7 +37,7 @@ const PlayerCard = () => {
                <p className="player-avatar"><img src={playerAvatar} width="110"/></p>
                <h5>{playerName}</h5>
                <p>{playerTitle}</p> 
-               <p className="player-tags">{playerTags}</p>
+               <p className="player-contact">{playerEmail} {playerTel}</p>
                {/* <p className="player-status">active</p><br/> */}
               </div>
        </div>
