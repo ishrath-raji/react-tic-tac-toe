@@ -7,47 +7,43 @@ export const players =[
     {
         name:'Achini Rathnayake',
         status:'online',
-        src: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+        src: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
+        title:"Software Developer"
     },
     {
         name:'Anura Adhikari',
         status:'online',
-        src: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+        src: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
+        title:"Tech Lead",
+        tags:"hyper, gaming buddy"
     },
     {
         name:'Aravinthan Ramaraju',
         status:'online',
-        src: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+        src: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
+        title:"Tech Lead",
+        tags:"hyper, gaming buddy"
     },
     {
         name:'Mohamed Shaffy',
         status:'offline',
-        src: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+        src: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
+        title:"Tech Lead",
+        tags:"hyper, gaming buddy"
     },
     {
         name:'Aishan Bamunawita',
         status: '3mins ago',
-        src: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+        src: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
+        title:"Tech Lead",
+        tags:"hyper, gaming buddy"
     },
     {
         name:'Aishan Bamunawita',
         status:'online',
-        src: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-    },
-    {
-        name:'Aishan Bamunawita',
-        status:'away',
-        src: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-    },
-    {
-        name:'Aishan Bamunawita',
-        status:'online',
-        src: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-    },
-    {
-        name:'Aishan Bamunawita',
-        status:'online',
-        src: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+        src: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
+        title:"Tech Lead",
+        tags:"hyper, gaming buddy"
     }
     
 ]

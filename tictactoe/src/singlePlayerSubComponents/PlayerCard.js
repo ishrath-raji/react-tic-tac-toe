@@ -1,21 +1,42 @@
 import "../App.css";
-import React from "react";
-import {Avatar} from "antd";
-import {Row, Container} from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import {players} from "../components/homeSubComponents/RecentlyPlayed";
 
 
 const PlayerCard = () => {
+   
+
+   const[playerName, setPlayerName] = useState("");
+   const[playerAvatar, setPlayerAvatar] = useState("");
+   const[playerTitle, setPlayerTitle] = useState("");
+   const[playerTags, setPlayerTags] = useState("");
+   const number =  Math.floor(Math.random()* (players.length - 1) + 1);
 
     // need to use useffect 
+    const profileData = async () =>{
+       try{
+          const profile = players[number]
+          setPlayerAvatar(profile.src)
+          setPlayerName(profile.name)
+          setPlayerTitle(profile.title)
+          setPlayerTags(profile.tags)
+       }catch(error){
+          console.log(error)
+       }
+    }
+
+    useEffect(() => {
+       profileData();
+    },[])
     return (
        <div className="player-card-container">
             <div className="player-card">
                 
-               <img src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" width="110"/>
-                <h5>Aishan Bamunawita</h5>
-                Senior HR Executive <br/>
-                tag 1 tag 2<br/>
-                active<br/>
+               <p className="player-avatar"><img src={playerAvatar} width="110"/></p>
+               <h5>{playerName}</h5>
+               <p>{playerTitle}</p> 
+               <p className="player-tags">{playerTags}</p>
+               {/* <p className="player-status">active</p><br/> */}
               </div>
        </div>
     )

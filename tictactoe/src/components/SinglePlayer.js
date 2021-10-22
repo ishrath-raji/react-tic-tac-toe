@@ -5,7 +5,7 @@ import GameBoard from "../singlePlayerSubComponents/GameBoard";
 import PlayerCard from "../singlePlayerSubComponents/PlayerCard";
 import logo from "../icons/tic-tac-toe-logo.png";
 import { Link } from "react-router-dom";
-import { Card } from "antd";
+
 
 const style = {
   display: "grid",

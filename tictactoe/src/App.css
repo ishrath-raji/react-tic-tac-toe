@@ -460,16 +460,22 @@
   justify-content: center;
   align-items: center;
   min-height: 750px;
+  
 }
 .player-card{
+  background-color: white;
+  align-items: center;
+  text-align: center;
+  padding: 10%;
+  border-radius: 25px;
+  min-height: 325px;
+  min-width: 300px;
+}
+
+/* Modal - result */
+.results {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  align-content: center;
   justify-content: center;
-  background-color: white;
-  width: 304px;
-  height: 318px;
-  border-radius: 10%;
-  
+  align-items: center;
 }
