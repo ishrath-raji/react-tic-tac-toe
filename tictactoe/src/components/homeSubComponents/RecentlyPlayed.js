@@ -9,6 +9,8 @@ export const players =[
         status:'online',
         src: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
         title:"Software Developer",
+        email:"something@99x.io",
+        tel:"0777145778"
 
     },
     {
