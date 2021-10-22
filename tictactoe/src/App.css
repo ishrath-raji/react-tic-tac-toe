@@ -461,3 +461,11 @@
   align-items: center;
   min-height: 750px;
 }
+
+/* Modal - result */
+.results {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
