@@ -11,11 +11,11 @@ const PlayerCard = () => {
        <div className="player-card-container">
             <div className="player-card">
                 
-               <img src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" width="125"/>
-                <h4>Aishan Bamunawita</h4>
-                <p>Senior HR Executive </p>
-                <p>tag 1 tag 2</p>
-                <p> active</p>
+               <img src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" width="110"/>
+                <h5>Aishan Bamunawita</h5>
+                Senior HR Executive <br/>
+                tag 1 tag 2<br/>
+                active<br/>
               </div>
        </div>
     )

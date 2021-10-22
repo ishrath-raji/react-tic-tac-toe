@@ -15,6 +15,7 @@ class GameBoard extends Component {
       totalMoves: 0,
       XWins: 0,
       OWins: 0,
+      TurnDisplay: "",
     };
   }
 
@@ -24,7 +25,9 @@ class GameBoard extends Component {
     if (this.gameState.board[box.dataset.square] === "") {
       this.gameState.board[box.dataset.square] = this.gameState.turn;
       box.innerText = this.gameState.turn;
+      console.log(this.gameState.turn);
       this.gameState.turn = this.gameState.turn === "X" ? "O" : "X";
+      console.log(this.gameState.turn);
       this.gameState.totalMoves++;
     }
 
