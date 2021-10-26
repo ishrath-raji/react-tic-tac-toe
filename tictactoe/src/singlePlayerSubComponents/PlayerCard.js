@@ -1,11 +1,10 @@
 import "../App.css";
 import React, { useEffect, useState } from "react";
-import { players } from "../components/homeSubComponents/RecentlyPlayed";
-import { AITurn } from "./GameBoard";
+import {players} from "../components/homeSubComponents/RecentlyPlayed";
+
 
 const PlayerCard = ({ turn }) => {
-  const [AITurn, setAITurn] = useState("");
-
+   console.log(turn);
   const [playerName, setPlayerName] = useState("");
   const [playerAvatar, setPlayerAvatar] = useState("");
   const [playerTitle, setPlayerTitle] = useState("");
@@ -14,8 +13,6 @@ const PlayerCard = ({ turn }) => {
   const number = Math.floor(Math.random() * (players.length - 1) + 1);
 
   console.log(turn);
-
-  // need to use useffect
   const profileData = async () => {
     try {
       const profile = players[number];
@@ -24,18 +21,16 @@ const PlayerCard = ({ turn }) => {
       setPlayerTitle(profile.title);
       setPlayerEmail(profile.email);
       setPlayerTel(profile.tel);
-      setAITurn(true);
     } catch (error) {
       console.log(error);
     }
   };
-
   useEffect(() => {
     profileData();
   }, []);
   return (
     <div className="player-card-container">
-      <div className={`player-card ${turn === "O" ? "" : "aiturn"}`}>
+      <div className={`player-card ${turn === "X" ? "" : "aiturn"}`}>
         <p className="player-avatar">
           <img src={playerAvatar} width="110" />
         </p>

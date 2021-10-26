@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 class GameBoard extends Component {
   constructor() {
     super();
-
     this.state = {
       winner: undefined,
       modalVisible: false,
@@ -79,6 +78,7 @@ class GameBoard extends Component {
         } while (this.gameState.board[random] !== "");
         this.gameState.gameLocked = false;
         this.clicked(document.querySelectorAll(".square")[random]);
+        this.props.turn("X");
       }, 500);
     }
   }
@@ -123,6 +123,7 @@ class GameBoard extends Component {
     this.gameState.turn = "X";
     this.state.winnerLine = undefined;
     this.gameState.curRound++;
+    this.props.turn(this.gameState.turn);
   }
 
   render() {
