@@ -116,9 +116,13 @@ class GameBoard extends Component {
 
   continueClicked() {
     this.setModalVisible(false);
-    console.log("continue clisked");
+    console.log("continue clicked");
+    this.gameState.board = Array(9).fill("");
     this.clearBoard();
     this.state.winnerLine = "";
+    this.gameState.totalMoves = 0;
+    this.gameState.gameEnded = false;
+    this.gameState.turn = "X";
   }
 
   render() {
