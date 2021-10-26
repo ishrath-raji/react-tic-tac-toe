@@ -34,9 +34,10 @@ class GameBoard extends Component {
     if (this.gameState.board[box.dataset.square] === "") {
       this.gameState.board[box.dataset.square] = this.gameState.turn;
       box.innerText = this.gameState.turn;
-      console.log(this.gameState.turn);
+      //console.log(this.gameState.turn);
       this.gameState.turn = this.gameState.turn === "X" ? "O" : "X";
-      console.log(this.gameState.turn);
+      this.props.turn(this.gameState.turn);
+      //console.log(this.gameState.turn);
       this.gameState.totalMoves++;
     }
 
@@ -103,7 +104,7 @@ class GameBoard extends Component {
         return board[a];
     }
 
-    console.log(this.gameState.totalMoves);
+    //console.log(this.gameState.totalMoves);
     if (this.gameState.totalMoves === 9) {
       return "draw";
     }
@@ -117,7 +118,7 @@ class GameBoard extends Component {
 
   continueClicked() {
     this.setModalVisible(false);
-    console.log("continue clicked");
+    //console.log("continue clicked");
     this.gameState.board = Array(9).fill("");
     this.clearBoard();
     this.state.winnerLine = "";
