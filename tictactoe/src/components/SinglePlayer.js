@@ -20,7 +20,6 @@ class SinglePlayer extends React.Component {
   playerTurn = (playturn) => {
     this.setState({ playturn: playturn });
     this.state.playerTurn = playturn;
-    console.log(this.state.playerTurn);
   };
 
   render() {

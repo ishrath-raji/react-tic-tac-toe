@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../icons/tic-tac-toe-logo.png";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { Modal, Row, Radio } from "antd";
 
 const style = {
@@ -15,6 +15,8 @@ class Menu extends React.Component {
   state = {
     modalVisible: false,
     onDifficulty: false,
+    onSymbol: false,
+    rounds: 3,
   };
 
   setModalVisible(modalVisible) {
@@ -23,6 +25,14 @@ class Menu extends React.Component {
 
   setDifficulty(onDifficulty) {
     this.setState({ onDifficulty: onDifficulty });
+  }
+
+  setSymbol(onSymbol) {
+    this.setState({ onSymbol: onSymbol });
+  }
+
+  setRounds(event) {
+    this.setState({ rounds: event.value });
   }
 
   render() {
@@ -79,20 +89,43 @@ class Menu extends React.Component {
               <Row>
                 <h5 className="modal-title">SELECT SYMBOL</h5>
               </Row>
+              <Row className="row button">
+                <Radio.Group
+                  onChange={() => {
+                    this.setSymbol(true);
+                  }}
+                >
+                  <Radio.Button value="X" className="button symbol X">
+                    X
+                  </Radio.Button>
+                  <Radio.Button value="O" className="button symbol O">
+                    O
+                  </Radio.Button>
+                </Radio.Group>
+              </Row>
+              <Row>
+                <h5 className="modal-title">SELECT NUMBER OF ROUNDS</h5>
+              </Row>
               <Link
-                to={
-                  this.state.onDifficulty
-                    ? "/gamehub/tictactoe/play/singleplayer"
-                    : "/gamehub/tictactoe/play"
-                }
+                to={{
+                  pathname:
+                    this.state.onDifficulty && this.state.onSymbol
+                      ? "/gamehub/tictactoe/play/singleplayer"
+                      : "/gamehub/tictactoe/play",
+                  state: { rounds: "hi" },
+                }}
               >
                 <Row className="row button">
-                  <Radio.Group>
-                    <Radio.Button value="X" className="button symbol X">
-                      X
+                  <Radio.Group
+                    onChange={(e) => {
+                      this.setRounds(e);
+                    }}
+                  >
+                    <Radio.Button value="3" className="button rounds three">
+                      3
                     </Radio.Button>
-                    <Radio.Button value="O" className="button symbol O">
-                      O
+                    <Radio.Button value="5" className="button rounds five">
+                      5
                     </Radio.Button>
                   </Radio.Group>
                 </Row>
