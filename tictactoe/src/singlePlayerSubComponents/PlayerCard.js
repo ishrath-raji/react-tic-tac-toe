@@ -32,7 +32,7 @@ const PlayerCard = () => {
     },[])
     return (
        <div className="player-card-container">
-            <div className={`player-card${turn === "player"? "aiturn":""}`}>
+            <div className="player-card">
                 
                <p className="player-avatar"><img src={playerAvatar} width="110"/></p>
                <h5>{playerName}</h5>
