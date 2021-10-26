@@ -127,6 +127,7 @@ class GameBoard extends Component {
     this.gameState.totalMoves = 0;
     this.gameState.gameEnded = false;
     this.gameState.turn = "X";
+    this.props.turn(this.gameState.turn);
   }
 
   render() {
