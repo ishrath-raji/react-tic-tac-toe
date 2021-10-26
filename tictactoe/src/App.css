@@ -301,6 +301,14 @@
   background-color: #4fc4b5;
 }
 
+.orange-font {
+  color: #ff615a;
+}
+
+.white-font {
+  color: white;
+}
+
 .square {
   width: 130px;
   height: 130px;
