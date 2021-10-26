@@ -1,7 +1,6 @@
 import "../App.css";
 import React, { useEffect, useState } from "react";
 import {players} from "../components/homeSubComponents/RecentlyPlayed";
-import {AITurn} from "./GameBoard";
 
 
 const PlayerCard = () => {
@@ -45,5 +44,4 @@ const PlayerCard = () => {
        </div>
     )
 }
-
 export default PlayerCard;

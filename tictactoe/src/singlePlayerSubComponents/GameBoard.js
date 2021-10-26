@@ -3,10 +3,10 @@ import "../App.css";
 import { Modal, Row, Radio } from "antd";
 import { Link } from "react-router-dom";
 
-class GameBoard extends Component {
+
+class GameBoard extends Component { 
   constructor() {
     super();
-
     this.state = {
       winner: undefined,
       modalVisible: false,
