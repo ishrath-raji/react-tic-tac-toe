@@ -108,6 +108,19 @@ class GameBoard extends Component {
     }
   }
 
+  clearBoard() {
+    for (let i = 0; i < 9; i++) {
+      document.querySelectorAll(".square")[i].innerText = "";
+    }
+  }
+
+  continueClicked() {
+    this.setModalVisible(false);
+    console.log("continue clisked");
+    this.clearBoard();
+    this.state.winnerLine = "";
+  }
+
   render() {
     return (
       <>
@@ -168,7 +181,9 @@ class GameBoard extends Component {
             </div>
             <button
               className="continue-btn"
-              onClick={() => this.setModalVisible(false)}
+              onClick={() => {
+                this.continueClicked();
+              }}
             >
               Continue
             </button>
