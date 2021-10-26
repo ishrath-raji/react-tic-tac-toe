@@ -15,9 +15,14 @@ const style = {
 };
 
 class SinglePlayer extends React.Component {
+  state = { playerTurn: "X" };
+
   playerTurn = (playturn) => {
-    console.log(playturn);
+    this.setState({ playturn: playturn });
+    this.state.playerTurn = playturn;
+    console.log(this.state.playerTurn);
   };
+
   render() {
     return (
       <div>
@@ -46,7 +51,7 @@ class SinglePlayer extends React.Component {
               </div>
             </Col>
             <Col md={4}>
-              <PlayerCard />
+              <PlayerCard turn={this.state.playerTurn} />
             </Col>
             <Col md={4}>
               <GameBoard turn={this.playerTurn} />

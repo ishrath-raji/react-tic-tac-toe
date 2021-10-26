@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { players } from "../components/homeSubComponents/RecentlyPlayed";
 import { AITurn } from "./GameBoard";
 
-const PlayerCard = () => {
+const PlayerCard = ({ turn }) => {
   const [AITurn, setAITurn] = useState("");
 
   const [playerName, setPlayerName] = useState("");
@@ -12,6 +12,8 @@ const PlayerCard = () => {
   const [playerEmail, setPlayerEmail] = useState("");
   const [playerTel, setPlayerTel] = useState("");
   const number = Math.floor(Math.random() * (players.length - 1) + 1);
+
+  console.log(turn);
 
   // need to use useffect
   const profileData = async () => {
@@ -33,7 +35,7 @@ const PlayerCard = () => {
   }, []);
   return (
     <div className="player-card-container">
-      <div className={`player-card ${AITurn ? "" : "aiturn"}`}>
+      <div className={`player-card ${turn === "O" ? "" : "aiturn"}`}>
         <p className="player-avatar">
           <img src={playerAvatar} width="110" />
         </p>
