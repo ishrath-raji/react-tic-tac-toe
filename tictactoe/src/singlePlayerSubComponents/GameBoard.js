@@ -20,7 +20,7 @@ class GameBoard extends Component {
       totalMoves: 0,
       XWins: 0,
       OWins: 0,
-      curRound: 0,
+      curRound: 1,
     };
   }
 
@@ -34,6 +34,7 @@ class GameBoard extends Component {
     if (this.gameState.board[box.dataset.square] === "") {
       this.gameState.board[box.dataset.square] = this.gameState.turn;
       box.innerText = this.gameState.turn;
+      box.style.color = this.gameState.turn === "X" ? "#ff615a" : "white";
       //console.log(this.gameState.turn);
       this.gameState.turn = this.gameState.turn === "X" ? "O" : "X";
       this.props.turn(this.gameState.turn);
@@ -53,7 +54,6 @@ class GameBoard extends Component {
         winnerLine: "Match won by X",
       });
       this.setModalVisible(true);
-      this.gameState.curRound++;
     } else if (result === "O") {
       this.gameState.gameEnded = true;
       this.gameState.OWins++;
@@ -62,7 +62,6 @@ class GameBoard extends Component {
         winnerLine: "Match won by O",
       });
       this.setModalVisible(true);
-      this.gameState.curRound++;
     } else if (result === "draw") {
       this.gameState.gameEnded = true;
       this.setState({
@@ -70,7 +69,6 @@ class GameBoard extends Component {
         winnerLine: "Match is drawn",
       });
       this.setModalVisible(true);
-      this.gameState.curRound++;
     }
 
     if (this.gameState.turn === "O" && !this.gameState.gameEnded) {
@@ -104,7 +102,6 @@ class GameBoard extends Component {
         return board[a];
     }
 
-    //console.log(this.gameState.totalMoves);
     if (this.gameState.totalMoves === 9) {
       return "draw";
     }
@@ -118,29 +115,28 @@ class GameBoard extends Component {
 
   continueClicked() {
     this.setModalVisible(false);
-    //console.log("continue clicked");
     this.gameState.board = Array(9).fill("");
     this.clearBoard();
     this.state.winnerLine = "";
     this.gameState.totalMoves = 0;
     this.gameState.gameEnded = false;
     this.gameState.turn = "X";
+    this.state.winnerLine = undefined;
+    this.gameState.curRound++;
   }
 
   render() {
     return (
       <>
         <div id="game">
-          <div id="turn">{this.state.winnerLine}</div>
-          {/* <div id="turn">
+          {/* <div id="turn">{this.state.winnerLine}</div> */}
+          <div id="turn">
             {this.state.winnerLine === undefined
-              ? this.gameState.turn === "X"
-                ? "X's turn"
-                : "O's turn"
+              ? `ROUND ` + this.gameState.curRound
               : this.state.winnerLine}
-          </div> */}
+          </div>
           <div id="board" onClick={(e) => this.clicked(e.target)}>
-            <div className="square" data-square="0"></div>
+            <div className={`square `} data-square="0"></div>
             <div className="square" data-square="1"></div>
             <div className="square" data-square="2"></div>
             <div className="square" data-square="3"></div>
@@ -169,6 +165,8 @@ class GameBoard extends Component {
           height="728px"
           onCancel={() => this.setModalVisible(false)}
           className="modal2"
+          closable={false}
+          maskClosable={false}
         >
           <div className="results">
             <h3 className="winner-line">{this.state.winnerLine}</h3>
