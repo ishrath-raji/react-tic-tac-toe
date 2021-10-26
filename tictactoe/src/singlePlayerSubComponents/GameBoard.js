@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 class GameBoard extends Component {
   constructor() {
     super();
+
     this.state = {
       winner: undefined,
       modalVisible: false,
@@ -19,7 +20,7 @@ class GameBoard extends Component {
       totalMoves: 0,
       XWins: 0,
       OWins: 0,
-      curRound: 0,
+      curRound: 0,   
     };
   }
 
@@ -79,6 +80,7 @@ class GameBoard extends Component {
         } while (this.gameState.board[random] !== "");
         this.gameState.gameLocked = false;
         this.clicked(document.querySelectorAll(".square")[random]);
+        
       }, 500);
     }
   }
@@ -199,3 +201,4 @@ class GameBoard extends Component {
 }
 
 export default GameBoard;
+

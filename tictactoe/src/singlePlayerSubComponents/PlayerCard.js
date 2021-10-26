@@ -1,10 +1,11 @@
 import "../App.css";
 import React, { useEffect, useState } from "react";
 import {players} from "../components/homeSubComponents/RecentlyPlayed";
+import {AITurn} from "./GameBoard";
 
 
 const PlayerCard = () => {
-   
+   const [AITurn, setAITurn] = useState("");
 
    const[playerName, setPlayerName] = useState("");
    const[playerAvatar, setPlayerAvatar] = useState("");
@@ -22,6 +23,7 @@ const PlayerCard = () => {
           setPlayerTitle(profile.title)
           setPlayerEmail(profile.email)
           setPlayerTel(profile.tel)
+          setAITurn(true)
        }catch(error){
           console.log(error)
        }
@@ -32,7 +34,7 @@ const PlayerCard = () => {
     },[])
     return (
        <div className="player-card-container">
-            <div className="player-card">
+            <div className={`player-card ${AITurn? "" : "aiturn"}`}>
                 
                <p className="player-avatar"><img src={playerAvatar} width="110"/></p>
                <h5>{playerName}</h5>
