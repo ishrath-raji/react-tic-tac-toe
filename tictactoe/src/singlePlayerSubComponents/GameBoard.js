@@ -81,8 +81,9 @@ class GameBoard extends Component {
         } while (this.gameState.board[random] !== "");
         this.gameState.gameLocked = false;
         this.clicked(document.querySelectorAll(".square")[random]);
-        
+        this.props.turn("X");
       }, 500);
+      
     }
   }
 
