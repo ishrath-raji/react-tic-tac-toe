@@ -5,6 +5,7 @@ import {players} from "../components/homeSubComponents/RecentlyPlayed";
 
 const PlayerCard = () => {
    const [AITurn, setAITurn] = useState("");
+   console.log(turn);
 
    const[playerName, setPlayerName] = useState("");
    const[playerAvatar, setPlayerAvatar] = useState("");
