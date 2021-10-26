@@ -6,7 +6,6 @@ import PlayerCard from "../singlePlayerSubComponents/PlayerCard";
 import logo from "../icons/tic-tac-toe-logo.png";
 import { Link } from "react-router-dom";
 
-
 const style = {
   display: "grid",
   gridTemplateColumns: " 1fr 1fr",
