@@ -166,7 +166,7 @@ class GameBoard extends Component {
           footer={null}
           height="728px"
           onCancel={() => this.setModalVisible(false)}
-          className="modal"
+          className="modal2"
         >
           <div className="results">
             <h3 className="winner-line">{this.state.winnerLine}</h3>
