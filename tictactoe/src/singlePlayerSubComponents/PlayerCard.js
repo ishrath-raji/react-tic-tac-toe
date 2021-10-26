@@ -4,7 +4,7 @@ import {players} from "../components/homeSubComponents/RecentlyPlayed";
 
 
 const PlayerCard = () => {
-   
+   const turn = "player";
 
    const[playerName, setPlayerName] = useState("");
    const[playerAvatar, setPlayerAvatar] = useState("");
@@ -32,7 +32,7 @@ const PlayerCard = () => {
     },[])
     return (
        <div className="player-card-container">
-            <div className="player-card">
+            <div className={`player-card${turn === "player"? "aiturn":""}`}>
                 
                <p className="player-avatar"><img src={playerAvatar} width="110"/></p>
                <h5>{playerName}</h5>
