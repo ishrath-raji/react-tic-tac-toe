@@ -23,11 +23,11 @@ const PlayerCard = () => {
           setPlayerTitle(profile.title)
           setPlayerEmail(profile.email)
           setPlayerTel(profile.tel)
+          setAITurn(true)
        }catch(error){
           console.log(error)
        }
     }
-    setAITurn(true)
 
     useEffect(() => {
        profileData();
