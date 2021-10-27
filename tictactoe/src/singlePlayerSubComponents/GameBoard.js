@@ -13,7 +13,7 @@ class GameBoard extends Component {
     };
 
     this.gameState = {
-      turn: "X",
+      turn: this.props.symbol,
       gameLocked: false,
       gameEnded: false,
       board: Array(9).fill(""),
@@ -69,7 +69,11 @@ class GameBoard extends Component {
       }
     }
 
-    if (this.gameState.turn === "O" && !this.gameState.gameEnded) {
+    if (
+      ((this.props.symbol === "X" && this.gameState.turn === "O") ||
+        (this.props.symbol === "O" && this.gameState.turn === "X")) &&
+      !this.gameState.gameEnded
+    ) {
       this.gameState.gameLocked = true;
       setTimeout(() => {
         do {
@@ -119,7 +123,7 @@ class GameBoard extends Component {
     this.state.winnerLine = "";
     this.gameState.totalMoves = 0;
     this.gameState.gameEnded = false;
-    this.gameState.turn = "X";
+    this.gameState.turn = this.props.symbol;
     this.state.winnerLine = undefined;
     this.gameState.curRound++;
     this.props.turn(this.gameState.turn);
@@ -128,6 +132,7 @@ class GameBoard extends Component {
   render() {
     return (
       <>
+        symbol - {this.props.symbol}
         <div id="game">
           {/* <div id="turn">{this.state.winnerLine}</div> */}
           <div id="turn">
@@ -136,7 +141,7 @@ class GameBoard extends Component {
               : this.state.winnerLine}
           </div>
           <div id="board" onClick={(e) => this.clicked(e.target)}>
-            <div className={`square `} data-square="0"></div>
+            <div className="square" data-square="0"></div>
             <div className="square" data-square="1"></div>
             <div className="square" data-square="2"></div>
             <div className="square" data-square="3"></div>
@@ -157,7 +162,6 @@ class GameBoard extends Component {
           </div>
           <div id="match-type">{this.state.rounds} ROUND MATCH</div>
         </div>
-
         <Modal
           centered
           visible={this.state.modalVisible}

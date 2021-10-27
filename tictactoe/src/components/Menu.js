@@ -15,9 +15,7 @@ class Menu extends React.Component {
   state = {
     modalVisible: false,
     onDifficulty: false,
-    onSymbol: false,
-    rounds: 3,
-    player: "X",
+    difficulty: "",
   };
 
   setModalVisible(modalVisible) {
@@ -28,12 +26,9 @@ class Menu extends React.Component {
     this.setState({ onDifficulty: onDifficulty });
   }
 
-  setSymbol(event) {
-    this.setState({ onSymbol: true, player: event.target.value });
-  }
-
-  setRounds(event) {
-    this.setState({ rounds: event.value });
+  selectDifficulty(event) {
+    console.log(event.target.value);
+    this.state.difficulty = event.target.value;
   }
 
   render() {
@@ -79,10 +74,18 @@ class Menu extends React.Component {
                     this.setDifficulty(true);
                   }}
                 >
-                  <Radio.Button value="easy" className="button difficulty easy">
+                  <Radio.Button
+                    value="easy"
+                    className="button difficulty easy"
+                    onClick={(e) => this.selectDifficulty(e)}
+                  >
                     Easy
                   </Radio.Button>
-                  <Radio.Button value="hard" className="button difficulty hard">
+                  <Radio.Button
+                    value="hard"
+                    className="button difficulty hard"
+                    onClick={(e) => this.selectDifficulty(e)}
+                  >
                     Hard
                   </Radio.Button>
                 </Radio.Group>
@@ -91,49 +94,35 @@ class Menu extends React.Component {
                 <h5 className="modal-title">SELECT SYMBOL</h5>
               </Row>
               <Row className="row button">
-                <Radio.Group
-                  onChange={(e) => {
-                    this.setSymbol(e);
-                  }}
-                >
-                  <Radio.Button value="X" className="button symbol X">
-                    X
-                  </Radio.Button>
-                  <Radio.Button value="O" className="button symbol O">
-                    O
-                  </Radio.Button>
-                </Radio.Group>
-              </Row>
-              <Row>
-                <h5 className="modal-title">SELECT NUMBER OF ROUNDS</h5>
-              </Row>
-              <Link
-                to={{
-                  pathname:
-                    this.state.onDifficulty && this.state.onSymbol
-                      ? "/gamehub/tictactoe/play/singleplayer"
-                      : "/gamehub/tictactoe/play",
-                  state: {
-                    rounds: this.state.rounds,
-                    player: this.state.player,
-                  },
-                }}
-              >
-                <Row className="row button">
-                  <Radio.Group
-                    onChange={(e) => {
-                      this.setRounds(e);
+                <Radio.Group>
+                  <Link
+                    to={{
+                      pathname: this.state.onDifficulty
+                        ? "/gamehub/tictactoe/play/singleplayer"
+                        : "/gamehub/tictactoe/play",
+                      symbol: "X",
+                      difficulty: this.state.difficulty,
                     }}
                   >
-                    <Radio.Button value="3" className="button rounds three">
-                      3
-                    </Radio.Button>
-                    <Radio.Button value="5" className="button rounds five">
-                      5
-                    </Radio.Button>
-                  </Radio.Group>
-                </Row>
-              </Link>
+                    <Radio.Button value="X" className="button symbol X">
+                      X
+                    </Radio.Button>{" "}
+                  </Link>
+                  <Link
+                    to={{
+                      pathname: this.state.onDifficulty
+                        ? "/gamehub/tictactoe/play/singleplayer"
+                        : "/gamehub/tictactoe/play",
+                      symbol: "O",
+                      difficulty: this.state.difficulty,
+                    }}
+                  >
+                    <Radio.Button value="O" className="button symbol O">
+                      O
+                    </Radio.Button>{" "}
+                  </Link>
+                </Radio.Group>
+              </Row>
             </div>
           </Modal>
         </div>
