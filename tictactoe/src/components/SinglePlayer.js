@@ -5,6 +5,8 @@ import GameBoard from "../singlePlayerSubComponents/GameBoard";
 import PlayerCard from "../singlePlayerSubComponents/PlayerCard";
 import logo from "../icons/tic-tac-toe-logo.png";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { withRouter } from "react-router";
 
 const style = {
   display: "grid",
@@ -23,9 +25,19 @@ class SinglePlayer extends React.Component {
     console.log(this.state.playerTurn);
   };
 
+  static propTypes = {
+    location: PropTypes.object.isRequired,
+  };
+
   render() {
+    const { location } = this.props;
     return (
       <div>
+        <div>
+          Symbol - {location.symbol}
+          <br />
+          Difficulty - {location.difficulty}
+        </div>
         <Container fluid={true}>
           <Row>
             <Col md={4}>
@@ -54,7 +66,7 @@ class SinglePlayer extends React.Component {
               <PlayerCard turn={this.state.playerTurn} />
             </Col>
             <Col md={4}>
-              <GameBoard turn={this.playerTurn} />
+              <GameBoard turn={this.playerTurn} symbol={location.symbol} />
             </Col>
           </Row>
         </Container>

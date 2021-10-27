@@ -15,6 +15,7 @@ class Menu extends React.Component {
   state = {
     modalVisible: false,
     onDifficulty: false,
+    difficulty: "",
   };
 
   setModalVisible(modalVisible) {
@@ -23,6 +24,11 @@ class Menu extends React.Component {
 
   setDifficulty(onDifficulty) {
     this.setState({ onDifficulty: onDifficulty });
+  }
+
+  selectDifficulty(event) {
+    console.log(event.target.value);
+    this.state.difficulty = event.target.value;
   }
 
   render() {
@@ -68,10 +74,18 @@ class Menu extends React.Component {
                     this.setDifficulty(true);
                   }}
                 >
-                  <Radio.Button value="easy" className="button difficulty easy">
+                  <Radio.Button
+                    value="easy"
+                    className="button difficulty easy"
+                    onClick={(e) => this.selectDifficulty(e)}
+                  >
                     Easy
                   </Radio.Button>
-                  <Radio.Button value="hard" className="button difficulty hard">
+                  <Radio.Button
+                    value="hard"
+                    className="button difficulty hard"
+                    onClick={(e) => this.selectDifficulty(e)}
+                  >
                     Hard
                   </Radio.Button>
                 </Radio.Group>
@@ -79,24 +93,36 @@ class Menu extends React.Component {
               <Row>
                 <h5 className="modal-title">SELECT SYMBOL</h5>
               </Row>
-              <Link
-                to={
-                  this.state.onDifficulty
-                    ? "/gamehub/tictactoe/play/singleplayer"
-                    : "/gamehub/tictactoe/play"
-                }
-              >
-                <Row className="row button">
-                  <Radio.Group>
+              <Row className="row button">
+                <Radio.Group>
+                  <Link
+                    to={{
+                      pathname: this.state.onDifficulty
+                        ? "/gamehub/tictactoe/play/singleplayer"
+                        : "/gamehub/tictactoe/play",
+                      symbol: "X",
+                      difficulty: this.state.difficulty,
+                    }}
+                  >
                     <Radio.Button value="X" className="button symbol X">
                       X
-                    </Radio.Button>
+                    </Radio.Button>{" "}
+                  </Link>
+                  <Link
+                    to={{
+                      pathname: this.state.onDifficulty
+                        ? "/gamehub/tictactoe/play/singleplayer"
+                        : "/gamehub/tictactoe/play",
+                      symbol: "O",
+                      difficulty: this.state.difficulty,
+                    }}
+                  >
                     <Radio.Button value="O" className="button symbol O">
                       O
-                    </Radio.Button>
-                  </Radio.Group>
-                </Row>
-              </Link>
+                    </Radio.Button>{" "}
+                  </Link>
+                </Radio.Group>
+              </Row>
             </div>
           </Modal>
         </div>
