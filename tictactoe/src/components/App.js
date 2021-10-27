@@ -1,10 +1,9 @@
 import "../App.css";
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import Home from "./Home";
 import Play from "./Play";
 import SinglePlayer from "./SinglePlayer";
-import Menu from "./Menu";
 
 const App = () => {
   return (

@@ -1,16 +1,17 @@
 import React, { Component } from "react";
 import "../App.css";
-import { Modal, Row, Radio } from "antd";
+import { Modal } from "antd";
 import { Link } from "react-router-dom";
 
 class GameBoard extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       winner: undefined,
       modalVisible: false,
-      rounds: 3,
+      rounds: props.rounds,
     };
+
     this.gameState = {
       turn: "X",
       gameLocked: false,
@@ -34,40 +35,38 @@ class GameBoard extends Component {
       this.gameState.board[box.dataset.square] = this.gameState.turn;
       box.innerText = this.gameState.turn;
       box.style.color = this.gameState.turn === "X" ? "#ff615a" : "white";
-      //console.log(this.gameState.turn);
       this.gameState.turn = this.gameState.turn === "X" ? "O" : "X";
       this.props.turn(this.gameState.turn);
-      //console.log(this.gameState.turn);
       this.gameState.totalMoves++;
     }
 
-    // console.log(this.gameState.totalMoves);
-
     var result = this.checkWinner();
 
-    if (result === "X") {
-      this.gameState.gameEnded = true;
-      this.gameState.XWins++;
-      this.setState({
-        winner: "X",
-        winnerLine: "Match won by X",
-      });
-      this.setModalVisible(true);
-    } else if (result === "O") {
-      this.gameState.gameEnded = true;
-      this.gameState.OWins++;
-      this.setState({
-        winner: "O",
-        winnerLine: "Match won by O",
-      });
-      this.setModalVisible(true);
-    } else if (result === "draw") {
-      this.gameState.gameEnded = true;
-      this.setState({
-        winner: "draw",
-        winnerLine: "Match is drawn",
-      });
-      this.setModalVisible(true);
+    if (this.state.rounds !== this.gameState.curRound) {
+      if (result === "X") {
+        this.gameState.gameEnded = true;
+        this.gameState.XWins++;
+        this.setState({
+          winner: "X",
+          winnerLine: "Match won by X",
+        });
+        this.setModalVisible(true);
+      } else if (result === "O") {
+        this.gameState.gameEnded = true;
+        this.gameState.OWins++;
+        this.setState({
+          winner: "O",
+          winnerLine: "Match won by O",
+        });
+        this.setModalVisible(true);
+      } else if (result === "draw") {
+        this.gameState.gameEnded = true;
+        this.setState({
+          winner: "draw",
+          winnerLine: "Match is drawn",
+        });
+        this.setModalVisible(true);
+      }
     }
 
     if (this.gameState.turn === "O" && !this.gameState.gameEnded) {

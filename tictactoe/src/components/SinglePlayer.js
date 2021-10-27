@@ -23,6 +23,8 @@ class SinglePlayer extends React.Component {
   };
 
   render() {
+    const rounds = this.props.location.state.rounds;
+    const player = this.props.location.state.player;
     return (
       <div>
         <Container fluid={true}>
@@ -40,10 +42,10 @@ class SinglePlayer extends React.Component {
                 <div className="menu-list">
                   <Row className="gap">
                     <Link style={style} to="/gamehub/tictactoe/play">
-                      <button className="orange">MENU</button>
+                      <button className="orange">MENU {rounds}</button>
                     </Link>
                     <Link style={style} to="/gamehub/tictactoe">
-                      <button className="blue">EXIT</button>
+                      <button className="blue">EXIT {player}</button>
                     </Link>
                   </Row>
                 </div>
@@ -53,7 +55,7 @@ class SinglePlayer extends React.Component {
               <PlayerCard turn={this.state.playerTurn} />
             </Col>
             <Col md={4}>
-              <GameBoard turn={this.playerTurn} />
+              <GameBoard turn={this.playerTurn} rounds={rounds} />
             </Col>
           </Row>
         </Container>

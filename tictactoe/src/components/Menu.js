@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../icons/tic-tac-toe-logo.png";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Modal, Row, Radio } from "antd";
 
 const style = {
@@ -17,6 +17,7 @@ class Menu extends React.Component {
     onDifficulty: false,
     onSymbol: false,
     rounds: 3,
+    player: "X",
   };
 
   setModalVisible(modalVisible) {
@@ -27,8 +28,8 @@ class Menu extends React.Component {
     this.setState({ onDifficulty: onDifficulty });
   }
 
-  setSymbol(onSymbol) {
-    this.setState({ onSymbol: onSymbol });
+  setSymbol(event) {
+    this.setState({ onSymbol: true, player: event.target.value });
   }
 
   setRounds(event) {
@@ -91,8 +92,8 @@ class Menu extends React.Component {
               </Row>
               <Row className="row button">
                 <Radio.Group
-                  onChange={() => {
-                    this.setSymbol(true);
+                  onChange={(e) => {
+                    this.setSymbol(e);
                   }}
                 >
                   <Radio.Button value="X" className="button symbol X">
@@ -112,7 +113,10 @@ class Menu extends React.Component {
                     this.state.onDifficulty && this.state.onSymbol
                       ? "/gamehub/tictactoe/play/singleplayer"
                       : "/gamehub/tictactoe/play",
-                  state: { rounds: "hi" },
+                  state: {
+                    rounds: this.state.rounds,
+                    player: this.state.player,
+                  },
                 }}
               >
                 <Row className="row button">
