@@ -2,7 +2,7 @@ import "../App.css";
 import React, { useEffect, useState } from "react";
 import { players } from "../components/homeSubComponents/RecentlyPlayed";
 
-const PlayerCard = ({ turn }) => {
+const PlayerCard = ({ turn,symbol }) => {
   // console.log(turn);
   const [playerName, setPlayerName] = useState("");
   const [playerAvatar, setPlayerAvatar] = useState("");
@@ -29,7 +29,7 @@ const PlayerCard = ({ turn }) => {
   }, []);
   return (
     <div className="player-card-container">
-      <div className={`player-card ${turn === "X" ? "" : "aiturn"}`}>
+      <div className={`player-card ${turn === symbol ? "" : "aiturn"}`}>
         <p className="player-avatar">
           <img src={playerAvatar} width="110" />
         </p>
