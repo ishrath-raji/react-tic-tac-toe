@@ -2,7 +2,7 @@ import "../App.css";
 import React, { useEffect, useState } from "react";
 import { players } from "../components/homeSubComponents/RecentlyPlayed";
 
-const PlayerCard = ({ turn,symbol }) => {
+const PlayerCard = ({ turn, symbol }) => {
   // console.log(turn);
   const [playerName, setPlayerName] = useState("");
   const [playerAvatar, setPlayerAvatar] = useState("");
