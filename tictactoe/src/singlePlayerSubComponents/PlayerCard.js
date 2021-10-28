@@ -1,10 +1,9 @@
 import "../App.css";
 import React, { useEffect, useState } from "react";
-import {players} from "../components/homeSubComponents/RecentlyPlayed";
-
+import { players } from "../components/homeSubComponents/RecentlyPlayed";
 
 const PlayerCard = ({ turn }) => {
-   console.log(turn);
+  // console.log(turn);
   const [playerName, setPlayerName] = useState("");
   const [playerAvatar, setPlayerAvatar] = useState("");
   const [playerTitle, setPlayerTitle] = useState("");
@@ -12,7 +11,7 @@ const PlayerCard = ({ turn }) => {
   const [playerTel, setPlayerTel] = useState("");
   const number = Math.floor(Math.random() * (players.length - 1) + 1);
 
-  console.log(turn);
+  //   console.log(turn);
   const profileData = async () => {
     try {
       const profile = players[number];

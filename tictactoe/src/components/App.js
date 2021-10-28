@@ -10,7 +10,10 @@ const App = () => {
     <BrowserRouter>
       <Route path="/gamehub/tictactoe" exact component={Home} />
       <Route path="/gamehub/tictactoe/play" exact component={Play} />
-      <Route path="/gamehub/tictactoe/play/singleplayer" component={SinglePlayer} />
+      <Route
+        path="/gamehub/tictactoe/play/singleplayer"
+        component={SinglePlayer}
+      />
     </BrowserRouter>
   );
 };
