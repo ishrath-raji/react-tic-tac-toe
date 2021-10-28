@@ -533,10 +533,17 @@
   font-size: 150%;
   border-radius: 10%;
   margin: 2%;
-  padding: 1%;
-  width: 30%;
+  padding: 2%;
+  width: 32%;
 }
 
 .pts-round {
   font-size: 130%;
+}
+
+.buttons-box {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }

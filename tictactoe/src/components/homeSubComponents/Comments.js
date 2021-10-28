@@ -38,7 +38,7 @@ class Comments extends React.Component {
     rate: 0,
   };
 
-  setModalVisible(modalVisible, event) {
+  setmodalVisible(modalVisible, event) {
     event.preventDefault();
     this.setState({ modalVisible });
   }
@@ -102,12 +102,12 @@ class Comments extends React.Component {
                     className="input-text"
                     readOnly
                     placeholder="Comment"
-                    onClick={(e) => this.setModalVisible(true, e)}
+                    onClick={(e) => this.setmodalVisible(true, e)}
                   />
                   <Button
                     htmlType="submit"
                     loading={submitting}
-                    onClick={(e) => this.setModalVisible(true, e)}
+                    onClick={(e) => this.setmodalVisible(true, e)}
                     className="comment-button"
                   >
                     Post
@@ -126,7 +126,7 @@ class Comments extends React.Component {
           onOk={() => this.onClickOK(false)}
           okText="Post"
           width="728px"
-          onCancel={(e) => this.setModalVisible(false, e)}
+          onCancel={(e) => this.setmodalVisible(false, e)}
           className="modal-comments"
         >
           <Row>

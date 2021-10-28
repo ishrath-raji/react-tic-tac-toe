@@ -32,11 +32,6 @@ class SinglePlayer extends React.Component {
     const { location } = this.props;
     return (
       <div>
-        <div>
-          Symbol - {location.symbol}
-          <br />
-          Difficulty - {location.difficulty}
-        </div>
         <Container fluid={true}>
           <Row>
             <Col md={4}>
@@ -65,7 +60,11 @@ class SinglePlayer extends React.Component {
               <PlayerCard turn={this.state.playerTurn} />
             </Col>
             <Col md={4}>
-              <GameBoard turn={this.playerTurn} symbol={location.symbol} />
+              <GameBoard
+                turn={this.playerTurn}
+                symbol={location.symbol}
+                rounds={location.rounds}
+              />
             </Col>
           </Row>
         </Container>
