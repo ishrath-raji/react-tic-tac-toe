@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import "../App.css";
-import { Modal, Row, Radio } from "antd";
+import { Modal } from "antd";
 import { Link } from "react-router-dom";
+
+const style = {
+  padding: "0 0 0 10%",
+};
 
 class GameBoard extends Component {
   constructor(props) {
@@ -9,8 +13,10 @@ class GameBoard extends Component {
     this.state = {
       winner: undefined,
       modalVisible: false,
-      rounds: 3,
+      rounds: props.rounds,
+      winnerModalVisible: false,
     };
+
     this.gameState = {
       turn: this.props.symbol,
       gameLocked: false,
@@ -27,6 +33,10 @@ class GameBoard extends Component {
     this.setState({ modalVisible });
   }
 
+  setWinnerModalVisible(winnerModalVisible) {
+    this.setState({ winnerModalVisible });
+  }
+
   clicked(box) {
     if (this.gameState.gameEnded || this.gameState.gameLocked) return;
 
@@ -41,29 +51,56 @@ class GameBoard extends Component {
 
     var result = this.checkWinner();
 
-    if (result === "X") {
-      this.gameState.gameEnded = true;
-      this.gameState.XWins++;
-      this.setState({
-        winner: "X",
-        winnerLine: "Match won by X",
-      });
-      this.setModalVisible(true);
-    } else if (result === "O") {
-      this.gameState.gameEnded = true;
-      this.gameState.OWins++;
-      this.setState({
-        winner: "O",
-        winnerLine: "Match won by O",
-      });
-      this.setModalVisible(true);
-    } else if (result === "draw") {
-      this.gameState.gameEnded = true;
-      this.setState({
-        winner: "draw",
-        winnerLine: "Match is drawn",
-      });
-      this.setModalVisible(true);
+    if (this.state.rounds !== this.gameState.curRound) {
+      if (result === "X") {
+        this.gameState.gameEnded = true;
+        this.gameState.XWins++;
+        this.setState({
+          winner: "X",
+          winnerLine: "Match won by X",
+        });
+        this.setModalVisible(true);
+      } else if (result === "O") {
+        this.gameState.gameEnded = true;
+        this.gameState.OWins++;
+        this.setState({
+          winner: "O",
+          winnerLine: "Match won by O",
+        });
+        this.setModalVisible(true);
+      } else if (result === "draw") {
+        this.gameState.gameEnded = true;
+        this.setState({
+          winner: "draw",
+          winnerLine: "Match is drawn",
+        });
+        this.setModalVisible(true);
+      }
+    } else if (this.state.rounds === this.gameState.curRound) {
+      if (result === "X") {
+        this.gameState.gameEnded = true;
+        this.gameState.XWins++;
+        this.setState({
+          winner: "X",
+          winnerLine: "Match won by X",
+        });
+        this.setWinnerModalVisible(true);
+      } else if (result === "O") {
+        this.gameState.gameEnded = true;
+        this.gameState.OWins++;
+        this.setState({
+          winner: "O",
+          winnerLine: "Match won by O",
+        });
+        this.setWinnerModalVisible(true);
+      } else if (result === "draw") {
+        this.gameState.gameEnded = true;
+        this.setState({
+          winner: "draw",
+          winnerLine: "Match is drawn",
+        });
+        this.setWinnerModalVisible(true);
+      }
     }
 
     if (
@@ -126,10 +163,29 @@ class GameBoard extends Component {
     this.props.turn(this.gameState.turn);
   }
 
+  winnerText() {
+    if (this.props.symbol === "X") {
+      return (
+        <span>
+          {this.gameState.XWins > this.gameState.OWins
+            ? "You Won"
+            : "Try Again Next time"}
+        </span>
+      );
+    } else if (this.props.symbol === "O") {
+      return (
+        <span>
+          {this.gameState.XWins < this.gameState.OWins
+            ? "You Won"
+            : "Try Again Next time"}
+        </span>
+      );
+    }
+  }
+
   render() {
     return (
       <>
-        symbol - {this.props.symbol}
         <div id="game">
           {/* <div id="turn">{this.state.winnerLine}</div> */}
           <div id="turn">
@@ -192,6 +248,39 @@ class GameBoard extends Component {
             >
               Continue
             </button>
+          </div>
+        </Modal>
+        <Modal
+          centered
+          visible={this.state.winnerModalVisible}
+          footer={null}
+          height="728px"
+          onCancel={() => this.setWinnerModalVisible(false)}
+          className="modal2"
+          closable={false}
+          maskClosable={false}
+        >
+          <div className="results">
+            <h3 className="winner-line">{this.winnerText}</h3>
+            <span className="pts-round"> Overall points </span>
+            <div id="score">
+              <span id="p1-score" className="title-green">
+                {this.gameState.XWins}
+              </span>
+              <span>-</span>
+              <span id="p2-score" className="title-orange">
+                {this.gameState.OWins}
+              </span>
+            </div>
+            <div className="buttons-box">
+              <Link style={style} to="/gamehub/tictactoe">
+                <button className="continue-btn">LEADBOARD</button>
+              </Link>
+
+              <Link style={style} to="/gamehub/tictactoe/play">
+                <button className="continue-btn">REPLAY</button>
+              </Link>
+            </div>
           </div>
         </Modal>
       </>

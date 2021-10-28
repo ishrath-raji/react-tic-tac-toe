@@ -15,10 +15,12 @@ class Menu extends React.Component {
   state = {
     modalVisible: false,
     onDifficulty: false,
+    onSymbol: false,
     difficulty: "",
+    symbol: "",
   };
 
-  setModalVisible(modalVisible) {
+  setmodalVisible(modalVisible) {
     this.setState({ modalVisible });
   }
 
@@ -31,6 +33,9 @@ class Menu extends React.Component {
     this.state.difficulty = event.target.value;
   }
 
+  setSymbol(event) {
+    this.setState({ symbol: event.target.value, onSymbol: true });
+  }
   render() {
     return (
       <div className="menu-container">
@@ -43,7 +48,7 @@ class Menu extends React.Component {
           <img src={logo} alt="tictactoe-logo" width="260px" />
         </div>
         <div className="menu-list">
-          <button className="orange" onClick={() => this.setModalVisible(true)}>
+          <button className="orange" onClick={() => this.setmodalVisible(true)}>
             SINGLE PLAYER
           </button>
           <Link style={style} to="/gamehub/tictactoe/play">
@@ -61,7 +66,7 @@ class Menu extends React.Component {
             visible={this.state.modalVisible}
             footer={null}
             width="728px"
-            onCancel={() => this.setModalVisible(false)}
+            onCancel={() => this.setmodalVisible(false)}
             className="modal single-player"
           >
             <div>
@@ -94,31 +99,52 @@ class Menu extends React.Component {
                 <h5 className="modal-title">SELECT SYMBOL</h5>
               </Row>
               <Row className="row button">
+                <Radio.Group
+                  onChange={(e) => {
+                    this.setSymbol(e);
+                  }}
+                >
+                  <Radio.Button value="X" className="button symbol X">
+                    X
+                  </Radio.Button>{" "}
+                  <Radio.Button value="O" className="button symbol O">
+                    O
+                  </Radio.Button>{" "}
+                </Radio.Group>
+              </Row>
+              <Row>
+                <h5 className="modal-title">SELECT NUMBER OF ROUNDS</h5>
+              </Row>
+              <Row className="row button">
                 <Radio.Group>
                   <Link
                     to={{
-                      pathname: this.state.onDifficulty
-                        ? "/gamehub/tictactoe/play/singleplayer"
-                        : "/gamehub/tictactoe/play",
-                      symbol: "X",
+                      pathname:
+                        this.state.onDifficulty && this.state.onSymbol
+                          ? "/gamehub/tictactoe/play/singleplayer"
+                          : "/gamehub/tictactoe/play",
+                      symbol: this.state.symbol,
                       difficulty: this.state.difficulty,
+                      rounds: 3,
                     }}
                   >
-                    <Radio.Button value="X" className="button symbol X">
-                      X
+                    <Radio.Button value="X" className="button rounds three">
+                      3
                     </Radio.Button>{" "}
                   </Link>
                   <Link
                     to={{
-                      pathname: this.state.onDifficulty
-                        ? "/gamehub/tictactoe/play/singleplayer"
-                        : "/gamehub/tictactoe/play",
-                      symbol: "O",
+                      pathname:
+                        this.state.onDifficulty && this.state.onSymbol
+                          ? "/gamehub/tictactoe/play/singleplayer"
+                          : "/gamehub/tictactoe/play",
+                      symbol: this.state.symbol,
                       difficulty: this.state.difficulty,
+                      rounds: 5,
                     }}
                   >
-                    <Radio.Button value="O" className="button symbol O">
-                      O
+                    <Radio.Button value="O" className="button rounds five">
+                      5
                     </Radio.Button>{" "}
                   </Link>
                 </Radio.Group>
