@@ -3,6 +3,10 @@ import "../App.css";
 import { Modal } from "antd";
 import { Link } from "react-router-dom";
 
+const style = {
+  padding: "0 0 0 10%",
+};
+
 class GameBoard extends Component {
   constructor(props) {
     super(props);
@@ -123,8 +127,7 @@ class GameBoard extends Component {
         } while (this.gameState.board[random] !== "");
         this.gameState.gameLocked = false;
         this.clicked(document.querySelectorAll(".square")[random]);
-        this.props.turn(this.props.symbol === "X"? "0":"X");
-
+        this.props.turn(this.props.symbol == "X" ? "0" : "X");
       }, 500);
     }
   }
@@ -262,11 +265,11 @@ class GameBoard extends Component {
               </span>
             </div>
             <div className="buttons-box">
-              <Link to="/gamehub/tictactoe">
+              <Link style={style} to="/gamehub/tictactoe">
                 <button className="continue-btn">LEADBOARD</button>
               </Link>
 
-              <Link to="/gamehub/tictactoe/play">
+              <Link style={style} to="/gamehub/tictactoe/play">
                 <button className="continue-btn">REPLAY</button>
               </Link>
             </div>
