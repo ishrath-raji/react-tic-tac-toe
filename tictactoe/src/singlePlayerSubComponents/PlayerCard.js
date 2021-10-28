@@ -31,13 +31,13 @@ const PlayerCard = ({ turn,symbol }) => {
     <div className="player-card-container">
       <div className={`player-card ${turn === symbol ? "" : "aiturn"}`}>
         <p className="player-avatar">
-          <img src={playerAvatar} width="110" />
+          <img src={playerAvatar} width="150" />
         </p>
         <h5>{playerName}</h5>
-        <p>{playerTitle}</p>
+        {/* <p>{playerTitle}</p>
         <p className="player-contact">
           {playerEmail} {playerTel}
-        </p>
+        </p> */}
         {/* <p className="player-status">active</p><br/> */}
       </div>
     </div>
