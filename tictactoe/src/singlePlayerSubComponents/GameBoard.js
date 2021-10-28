@@ -22,6 +22,7 @@ class GameBoard extends Component {
       XWins: 0,
       OWins: 0,
       curRound: 1,
+      winnerText: "",
     };
   }
 
@@ -31,6 +32,17 @@ class GameBoard extends Component {
 
   setWinnerModalVisible(winnerModalVisible) {
     this.setState({ winnerModalVisible });
+    if (this.props.symbol === "X") {
+      this.gameState.winnerText =
+        this.gameState.XWins > this.gameState.OWins
+          ? "You Won"
+          : "Try Again Next time";
+    } else if (this.props.symbol === "O") {
+      this.gameState.winnerText =
+        this.gameState.XWins < this.gameState.OWins
+          ? "You Won"
+          : "Try Again Next time";
+    }
   }
 
   clicked(box) {
@@ -159,26 +171,6 @@ class GameBoard extends Component {
     this.props.turn(this.gameState.turn);
   }
 
-  winnerText() {
-    if (this.props.symbol === "X") {
-      return (
-        <span>
-          {this.gameState.XWins > this.gameState.OWins
-            ? "You Won"
-            : "Try Again Next time"}
-        </span>
-      );
-    } else if (this.props.symbol === "O") {
-      return (
-        <span>
-          {this.gameState.XWins < this.gameState.OWins
-            ? "You Won"
-            : "Try Again Next time"}
-        </span>
-      );
-    }
-  }
-
   render() {
     return (
       <>
@@ -257,7 +249,7 @@ class GameBoard extends Component {
           maskClosable={false}
         >
           <div className="results">
-            <h3 className="winner-line">{this.winnerText}</h3>
+            <h3 className="winner-line">{this.gameState.winnerText}</h3>
             <span className="pts-round"> Overall points </span>
             <div id="score">
               <span id="p1-score" className="title-green">
