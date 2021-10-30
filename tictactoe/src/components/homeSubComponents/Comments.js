@@ -1,5 +1,5 @@
 import "../../App.css";
-import React from "react";
+import React, {useState} from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { Avatar, Button, Input, Rate, Modal } from "antd";
 
@@ -28,15 +28,22 @@ const CommentList = ({ comments }) => {
   return <React.Fragment>{listItems}</React.Fragment>;
 };
 
-class Comments extends React.Component {
-  state = {
-    comments: [],
-    submitting: false,
-    value: "",
-    commentListHeight: 0,
-    modalVisible: false,
-    rate: 0,
-  };
+const Comments = () => {
+  const [comments , setComments] = useState([]);
+  const [submitting , setSubmitting] = useState(false);
+  const [value , setValue] = useState("");
+  const [commentListHeight, setCommentListHeight] = useState(0);
+  const [modalVisible , setModalVisible] = useState(false);
+  const [rate , setRate] = useState(0);
+
+  // state = {
+  //   comments: [],
+  //   submitting: false,
+  //   value: "",
+  //   commentListHeight: 0,
+  //   modalVisible: false,
+  //   rate: 0,
+  // };
 
   setmodalVisible(modalVisible, event) {
     event.preventDefault();
