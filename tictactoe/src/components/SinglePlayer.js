@@ -58,7 +58,10 @@ class SinglePlayer extends React.Component {
               </div>
             </Col>
             <Col md={4}>
-              <PlayerCard turn={this.state.playerTurn} symbol={location.symbol}/>
+              <PlayerCard
+                turn={this.state.playerTurn}
+                symbol={location.symbol}
+              />
             </Col>
             <Col md={4}>
               <GameBoard
