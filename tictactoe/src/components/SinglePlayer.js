@@ -21,6 +21,8 @@ const SinglePlayer = (props) => {
     setPlayerTurn(playturn);
   };
 
+  const { location } = props;
+
   return (
     <div>
       <Container fluid={true}>
@@ -53,8 +55,8 @@ const SinglePlayer = (props) => {
           <Col md={4}>
             <GameBoard
               turn={ChangeplayerTurn}
-              symbol={props.symbol}
-              rounds={props.rounds}
+              symbol={location.symbol}
+              rounds={location.rounds}
             />
           </Col>
         </Row>

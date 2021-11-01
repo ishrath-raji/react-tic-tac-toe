@@ -47,7 +47,7 @@ const Menu = () => {
           visible={modalVisible}
           footer={null}
           width="728px"
-          onCancel={() => this.setmodalVisible(false)}
+          onCancel={() => setModalVisible(false)}
           className="modal single-player"
         >
           <div>
