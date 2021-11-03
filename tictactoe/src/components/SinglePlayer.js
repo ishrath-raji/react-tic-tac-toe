@@ -57,6 +57,7 @@ const SinglePlayer = (props) => {
               turn={ChangeplayerTurn}
               symbol={location.symbol}
               rounds={location.rounds}
+              difficulty={location.difficulty}
             />
           </Col>
         </Row>

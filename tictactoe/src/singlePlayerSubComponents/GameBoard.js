@@ -30,6 +30,43 @@ const GameBoard = (props) => {
   };
 
   useEffect(() => {
+    var winConditions = [
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [0, 4, 8],
+      [2, 4, 6],
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+    ];
+    let box;
+    for (let i = 0; i < winConditions.length; i++) {
+      const [a, b, c] = winConditions[i];
+      if (
+        board[a] === board[b] &&
+        (board[b] === "X" || board[b] === "O") &&
+        board[c] === ""
+      ) {
+        console.log("case 1");
+        box = c;
+      } else if (
+        board[a] === board[c] &&
+        (board[c] === "X" || board[c] === "O") &&
+        board[b] === ""
+      ) {
+        console.log("case 2");
+        box = b;
+      } else if (
+        board[b] === board[c] &&
+        (board[c] === "X" || board[c] === "O") &&
+        board[a] === ""
+      ) {
+        console.log("case 3");
+        box = a;
+      }
+    }
+
     if (
       ((props.symbol === "X" && turn === "O") ||
         (props.symbol === "O" && turn === "X")) &&
@@ -37,10 +74,15 @@ const GameBoard = (props) => {
     ) {
       setGameLocked(true);
       setTimeout(() => {
-        do {
-          var random = Math.floor(Math.random() * 9);
-        } while (board[random] !== "");
+        if (props.difficulty === "easy" || box === undefined) {
+          do {
+            var random = Math.floor(Math.random() * 9);
+          } while (board[random] !== "");
+        } else if (props.difficulty === "hard") {
+          var random = box;
+        }
         setGameLocked(false);
+        console.log(random);
         clicked(document.querySelectorAll(".square")[random]);
         props.turn(props.symbol === "X" ? "O" : "X");
       }, 500);
@@ -60,7 +102,7 @@ const GameBoard = (props) => {
     }
 
     var result = checkWinner();
-    console.log(result);
+    // console.log(result);
 
     if (rounds !== curRound) {
       if (result === "X") {
@@ -126,7 +168,7 @@ const GameBoard = (props) => {
       )
         return curboard[a];
     }
-    console.log(totalMoves);
+    // console.log(totalMoves);
     if (totalMoves === 8) {
       return "draw";
     }
