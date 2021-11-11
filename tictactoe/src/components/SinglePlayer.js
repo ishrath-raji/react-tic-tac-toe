@@ -1,8 +1,8 @@
 import "../App.css";
 import React, { useState } from "react";
 import { Container, Col, Row } from "react-bootstrap";
-import GameBoard from "../singlePlayerSubComponents/GameBoard";
-import PlayerCard from "../singlePlayerSubComponents/PlayerCard";
+import GameBoard from "./singlePlayerSubComponents/GameBoard";
+import PlayerCard from "./singlePlayerSubComponents/PlayerCard";
 import logo from "../icons/tic-tac-toe-logo.png";
 import { Link } from "react-router-dom";
 
