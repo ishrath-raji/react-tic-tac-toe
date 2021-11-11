@@ -32,7 +32,7 @@ const Menu = () => {
         <button className="orange" onClick={() => setModalVisible(true)}>
           SINGLE PLAYER
         </button>
-        <Link style={style} to="/gamehub/tictactoe/play">
+        <Link style={style} to="/gamehub/tictactoe/play/lobby">
           <button className="blue">MULTI PLAYER</button>
         </Link>
         <Link style={style} to="/gamehub/tictactoe/play">
