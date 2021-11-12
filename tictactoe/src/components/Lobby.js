@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import { Container, Col, Row } from "react-bootstrap";
-import OnlinePlayers from "./OnlinePlayers";
 import logo from "../icons/tic-tac-toe-logo.png";
 import { Link } from "react-router-dom";
 import { Menu, Dropdown, Button } from "antd";
 import SearchBar from "./SearchBar";
 import ColleagueData from "../MOCK_DATA.json";
+import { players } from "./homeSubComponents/RecentlyPlayed";
+import OnlinePlayers from "./OnlinePlayers";
 
 const Lobby = () => {
   const [rounds, setRounds] = useState("ROUNDS");
+  const onlinePlayerList = players.map((player,index) =>(<OnlinePlayers key={index} player={player}/>))
+  console.log(onlinePlayerList);
 
   const menu = (
     <Menu>
@@ -70,7 +73,9 @@ const Lobby = () => {
             </div>
             </Row>
             <Row>
-              <OnlinePlayers />
+              <div className="online-list">
+                <div className="online-player-list" >{onlinePlayerList}</div>
+              </div>
             </Row>
           </Col>
         </Row>

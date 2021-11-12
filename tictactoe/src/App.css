@@ -287,7 +287,7 @@
 
 .player-row {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
 }
 
@@ -629,4 +629,25 @@ a:hover {
 .player-status {
   color:green;
   padding-right: 5%;
+}
+/*online players*/
+.online-list{
+  margin-top: 2vh;
+  min-height: 70vh;
+  max-height: 75vh;
+  padding: 2%;
+  background-color: #4FC4B5;
+  border-radius: 2vh;
+}
+.online-player-list{
+  overflow-y: scroll;
+  max-height: 65vh;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+.online-player-content{
+  padding: 2%;
+  margin: 1%;
+  background-color: #339b8b;
+  text-align: justify;
 }
