@@ -1,67 +1,61 @@
 import React, { useState } from "react";
-import { Input, Space } from "antd";
-import { SearchOutlined } from "@ant-design/icons";
+import { Input } from "antd";
 import "../App.css";
-import JSONDATA from "../MOCK_DATA.json";
 
 const { Search } = Input;
 
 const onSearch = (value) => console.log(value);
 
 const SearchBar = ({ placeholder, data }) => {
-  const [searchTerm, setSearchTerm] = useState("");
+  const [filteredData, setFilteredData] = useState([]);
+  const [wordEntered, setWordEntered] = useState("");
+
+  const handleFilter = (event) => {
+    const searchWord = event.target.value;
+    setWordEntered(searchWord);
+    const newFilter = data.filter((value) => {
+      var full_name = value.first_name + " " + value.last_name;
+      return full_name.toLowerCase().includes(searchWord.toLowerCase());
+    });
+    if (searchWord === "") {
+      setFilteredData([]);
+    } else {
+      setFilteredData(newFilter);
+    }
+  };
+
   return (
     <div>
-      {/* <Search
-        size="large"
-        bordered={false}
-        className="search-bar"
-        placeholder="Search Colleague"
-        allowClear
-        onSearch={onSearch}
-        style={{ width: 300 }}
-      /> */}
-      <input
-        type="text"
-        placeholder="search..."
-        onChange={(event) => {
-          setSearchTerm(event.target.value);
-        }}
-      />
-      {JSONDATA.filter((val) => {
-        if (searchTerm == "") {
-          //   return val;
-        } else if (
-          val.first_name
-            .toLocaleLowerCase()
-            .includes(searchTerm.toLocaleLowerCase())
-        ) {
-          return val;
-        }
-      }).map((val, key) => {
-        return (
-          <div className="user" key={key}>
-            {val.first_name}
-          </div>
-        );
-      })}
-      {/* <div className="search">
+      <div className="search">
         <div className="search-inputs">
-          <input
+          <Search
+            size="large"
+            bordered={false}
             className="search-bar"
-            type="text"
             placeholder={placeholder}
-          ></input>
-          <div className="search-icon">
-            <SearchOutlined style={{ fontSize: "25px" }} />
+            allowClear
+            onSearch={onSearch}
+            style={{ width: 400 }}
+            onChange={handleFilter}
+            value={wordEntered}
+          />
+        </div>
+        {filteredData.length !== 0 && (
+          <div className="data-result">
+            {filteredData.slice(0, 20).map((value, key) => {
+              return (
+                <a className="data-item" href="">
+                  <div className="player-name">
+                    {value.first_name + " " + value.last_name}
+                  </div>
+                  {/* need to have the same thing which is showed in the player list */}
+                  <div className="player-status">player status</div>
+                </a>
+              );
+            })}
           </div>
-        </div>
-        <div className="data-result">
-          {data.map((value, key) => {
-            return <div>{value.first_name}</div>;
-          })}
-        </div>
-      </div> */}
+        )}
+      </div>
     </div>
   );
 };

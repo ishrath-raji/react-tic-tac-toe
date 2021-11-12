@@ -3,7 +3,7 @@ import { Container, Col, Row } from "react-bootstrap";
 import OnlinePlayers from "./OnlinePlayers";
 import logo from "../icons/tic-tac-toe-logo.png";
 import { Link } from "react-router-dom";
-import { Menu, Dropdown, Button, Space } from "antd";
+import { Menu, Dropdown, Button } from "antd";
 import SearchBar from "./SearchBar";
 import ColleagueData from "../MOCK_DATA.json";
 
