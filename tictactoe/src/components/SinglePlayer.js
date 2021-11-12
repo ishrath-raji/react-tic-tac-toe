@@ -6,14 +6,6 @@ import PlayerCard from "./singlePlayerSubComponents/PlayerCard";
 import logo from "../icons/tic-tac-toe-logo.png";
 import { Link } from "react-router-dom";
 
-const style = {
-  display: "grid",
-  gridTemplateColumns: " 1fr 1fr",
-  gridColumnGap: "35px",
-  justifyContent: "center",
-  alignItems: "center",
-};
-
 const SinglePlayer = (props) => {
   const [playerTurn, setPlayerTurn] = useState("X");
 
@@ -39,10 +31,10 @@ const SinglePlayer = (props) => {
               </div>
               <div className="menu-list">
                 <Row className="gap">
-                  <Link style={style} to="/gamehub/tictactoe/play">
+                  <Link to="/gamehub/tictactoe/play">
                     <button className="orange">MENU </button>
                   </Link>
-                  <Link style={style} to="/gamehub/tictactoe">
+                  <Link to="/gamehub/tictactoe">
                     <button className="blue">EXIT </button>
                   </Link>
                 </Row>
