@@ -158,7 +158,13 @@
   background-color: #b8b8b8;
   min-height: 100%;
 }
-
+.gap a {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 35px;
+  justify-content: center;
+  align-items: center;
+}
 /* End - play page menu list  */
 
 /*Start - Comment section*/
@@ -583,3 +589,51 @@ col.notify {
   background-color: #49b5a7;
 }
 /*end - lobby*/
+.buttons-box a {
+  padding-left: 10%;
+}
+
+/* looby */
+.rounds-txt {
+  font-size: 170%;
+  color: rgba(73, 72, 72, 0.6);
+  margin: 5% 0 2% 0;
+}
+.no-of-rounds {
+  border: 1px solid black;
+  border-radius: 12px;
+  font-size: 120%;
+  margin: 0 0 40px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu-item {
+  font-size: 120%;
+}
+/* .search-bar {
+   border: 1px solid rgb(179, 174, 174);
+   border-radius: 20px;
+   padding: 1%;
+   margin: 5% 0;
+ } */
+.search-inputs {
+  display: flex;
+}
+
+.search input {
+  border: 1px solid rgb(179, 174, 174);
+  /* border-radius: 20px; */
+  padding: 1%;
+  margin: 5% 0;
+}
+.search-icon {
+  border: 1px solid rgb(179, 174, 174);
+  padding: 1%;
+  margin: 5% 0;
+  height: 60px;
+  width: 50px;
+  background-color: white;
+  display: grid;
+  place-items: center;
+}
