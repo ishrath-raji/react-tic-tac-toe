@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Col, Row } from "react-bootstrap";
+import Notification from "./Notification";
 
 const Lobby = () => {
   return (
@@ -10,7 +11,9 @@ const Lobby = () => {
             <div className="">left-hand side components</div>
           </Col>
           <Col md={5}>
-            <div className="">right-hand side components</div>
+            <div className="">
+              <Notification />
+            </div>
           </Col>
         </Row>
       </Container>

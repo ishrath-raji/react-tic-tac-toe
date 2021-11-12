@@ -527,7 +527,7 @@
 }
 
 .continue-btn {
-  background-color: #4fc4b5;
+  background-color: #a2d6cf;
   color: white;
   border: none;
   font-size: 150%;
@@ -544,6 +544,42 @@
 .buttons-box {
   width: 100%;
 }
- .buttons-box a {
-   padding-left: 10%;
- }
+.buttons-box a {
+  padding-left: 10%;
+}
+
+/*Start - lobby*/
+col.notify {
+  height: 45px;
+  display: flex;
+  align-items: center;
+}
+
+.modalNotify .ant-modal-content {
+  height: 500px;
+  border-radius: 2%;
+  margin-top: 5%;
+  padding-top: 5%;
+}
+
+.modalNotify .anticon svg {
+  font-size: 23px;
+}
+
+.notify.button {
+  color: #ffffff;
+  height: 80%;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+}
+
+.notify.button.accept {
+  background-color: #ff615a;
+}
+
+.notify.button.decline {
+  background-color: #49b5a7;
+}
+/*end - lobby*/
