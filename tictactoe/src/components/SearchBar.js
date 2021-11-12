@@ -1,15 +1,12 @@
 import React, { useState } from "react";
-import { Input, Space } from "antd";
-import { SearchOutlined, CloseCircleOutlined } from "@ant-design/icons";
+import { Input } from "antd";
 import "../App.css";
-import JSONDATA from "../MOCK_DATA.json";
 
 const { Search } = Input;
 
 const onSearch = (value) => console.log(value);
 
 const SearchBar = ({ placeholder, data }) => {
-  const [searchTerm, setSearchTerm] = useState("");
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState("");
 
@@ -27,11 +24,6 @@ const SearchBar = ({ placeholder, data }) => {
     }
   };
 
-  const clearInput = () => {
-    setFilteredData([]);
-    setWordEntered("");
-  };
-
   return (
     <div>
       <div className="search">
@@ -40,7 +32,7 @@ const SearchBar = ({ placeholder, data }) => {
             size="large"
             bordered={false}
             className="search-bar"
-            placeholder="Search Colleague"
+            placeholder={placeholder}
             allowClear
             onSearch={onSearch}
             style={{ width: 400 }}
@@ -48,7 +40,7 @@ const SearchBar = ({ placeholder, data }) => {
             value={wordEntered}
           />
         </div>
-        {filteredData.length != 0 && (
+        {filteredData.length !== 0 && (
           <div className="data-result">
             {filteredData.slice(0, 20).map((value, key) => {
               return (
