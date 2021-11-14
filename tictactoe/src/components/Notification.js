@@ -65,6 +65,8 @@ const Notification = () => {
     );
   });
 
+  const noListItems = "No Invitations";
+
   return (
     <div>
       <Row>
@@ -87,7 +89,9 @@ const Notification = () => {
             onCancel={() => setModalVisible(false)}
             className="modalNotify notification"
           >
-            <Container>{listItems}</Container>
+            <Container>
+              {invitations.length !== 0 ? listItems : noListItems}
+            </Container>
           </Modal>
         </Col>
         <Col className="lobby leadboard"></Col>
