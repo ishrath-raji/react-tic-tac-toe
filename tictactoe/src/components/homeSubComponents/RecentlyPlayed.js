@@ -54,6 +54,27 @@ export const players =[
         title:"Tech Lead",
         email:"something@99x.io",
         tel:"0777145778"    
+    },{
+        name:'Aishan Bamunawita',
+        status:'online',
+        src: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
+        title:"Tech Lead",
+        email:"something@99x.io",
+        tel:"0777145778"
+    },{
+        name:'Aishan Bamunawita',
+        status:'online',
+        src: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
+        title:"Tech Lead",
+        email:"something@99x.io",
+        tel:"0777145778"
+    },{
+        name:'Aishan Bamunawita',
+        status:'online',
+        src: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
+        title:"Tech Lead",
+        email:"something@99x.io",
+        tel:"0777145778"
     }
     
 ]

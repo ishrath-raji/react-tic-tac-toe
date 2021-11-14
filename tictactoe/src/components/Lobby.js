@@ -3,12 +3,16 @@ import { Container, Col, Row } from "react-bootstrap";
 import Notification from "./Notification";
 import logo from "../icons/tic-tac-toe-logo.png";
 import { Link } from "react-router-dom";
-import { Menu, Dropdown, Button, Space } from "antd";
+import { Menu, Dropdown, Button } from "antd";
 import SearchBar from "./SearchBar";
 import ColleagueData from "../MOCK_DATA.json";
+import { players } from "./homeSubComponents/RecentlyPlayed";
+import OnlinePlayers from "./OnlinePlayers";
 
 const Lobby = () => {
   const [rounds, setRounds] = useState("ROUNDS");
+  const onlinePlayerList = players.map((player,index) =>(<OnlinePlayers key={index} player={player}/>))
+  console.log(onlinePlayerList);
 
   const menu = (
     <Menu>
@@ -61,12 +65,19 @@ const Lobby = () => {
             </div>
           </Col>
           <Col md={5}>
+            <Row>
             <div className="">
               <SearchBar
                 placeholder="Search a colleague"
                 data={ColleagueData}
               />
             </div>
+            </Row>
+            <Row>
+              <div className="online-list">
+                <div className="online-player-list" >{onlinePlayerList}</div>
+              </div>
+            </Row>
           </Col>
           <Col>
             <Notification />
