@@ -572,7 +572,7 @@ col.notify {
   font-size: 23px;
 }
 
-.notify.button {
+.notify-button {
   color: #ffffff;
   height: 80%;
   font-size: 18px;
@@ -581,14 +581,18 @@ col.notify {
   border-radius: 20px;
 }
 
-.notify.button.accept {
+.notify-button.accept {
   background-color: #ff615a;
 }
 
-.notify.button.decline {
+.notify-button.decline {
   background-color: #49b5a7;
 }
+.notify.modal-row{
+  margin-bottom:10px;
+}
 /*end - lobby*/
+
 .buttons-box a {
   padding-left: 10%;
 }

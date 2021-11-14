@@ -5,6 +5,7 @@ import Home from "./Home";
 import Play from "./Play";
 import SinglePlayer from "./SinglePlayer";
 import Lobby from "./Lobby";
+import Multiplayer from "./MultiPlayer";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         component={SinglePlayer}
       />
       <Route path="/gamehub/tictactoe/play/lobby" exact component={Lobby} />
+      <Route path="/gamehub/tictactoe/play/lobby/multiplayer" exact component={Multiplayer} />
     </BrowserRouter>
   );
 };
