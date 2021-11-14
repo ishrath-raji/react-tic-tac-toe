@@ -33,11 +33,11 @@ const Notification = () => {
   const [invitations, updateInvitations] = useState(notifications);
 
   const deleteEl = (name) => {
-    updateInvitations(invitations.filter(item => item.name !== name));
-  }
+    updateInvitations(invitations.filter((item) => item.name !== name));
+  };
 
-  const listItems = invitations.map((invitation,index) => {
-    return(
+  const listItems = invitations.map((invitation, index) => {
+    return (
       <Row key={invitation.name} className="notify modal-row">
         <Col className="col notify" xs={1}>
           <Avatar src={invitation.avatar} />{" "}
@@ -46,13 +46,10 @@ const Notification = () => {
           {invitation.name}
         </Col>
         <Col className="col notify" style={{ padding: "0" }} xs={3}>
-          <Button
-            className="notify-button accept"
-            icon={<CheckOutlined />}
-          >
-          <Link style={style} to="/gamehub/tictactoe/play/lobby/multiplayer">
-            Accept
-          </Link>
+          <Button className="notify-button accept" icon={<CheckOutlined />}>
+            <Link style={style} to="/gamehub/tictactoe/play/lobby/multiplayer">
+              Accept
+            </Link>
           </Button>
         </Col>
         <Col className="col notify" style={{ padding: "0" }} xs={3}>
@@ -73,7 +70,11 @@ const Notification = () => {
       <Row>
         <Col className="col notify">
           <Button
-            style={{ backgroundColor: "#4fc4b5" }}
+            style={{
+              backgroundColor: "#4fc4b5",
+              width: "50px",
+              height: "50px",
+            }}
             shape="circle"
             icon={<BellFilled style={{ color: "#f5f5f5" }} />}
             onClick={() => setModalVisible(true)}
@@ -86,9 +87,7 @@ const Notification = () => {
             onCancel={() => setModalVisible(false)}
             className="modalNotify notification"
           >
-            <Container>
-              {listItems}
-            </Container>
+            <Container>{listItems}</Container>
           </Modal>
         </Col>
         <Col className="lobby leadboard"></Col>
