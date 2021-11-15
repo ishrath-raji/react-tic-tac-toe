@@ -5,13 +5,14 @@ import { BellFilled, CheckOutlined, CloseOutlined } from "@ant-design/icons";
 import { Button, Modal, Avatar } from "antd";
 import { Link } from "react-router-dom";
 
-const style = {
-  width: "100%",
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  alignItems: "center",
-};
+// const style = {
+//   width: "100%",
+//   display: "flex",
+//   flexDirection: "column",
+//   justifyContent: "center",
+//   alignItems: "center",
+//   color: "white",
+// };
 
 export const notifications = [
   {
@@ -46,15 +47,21 @@ const Notification = () => {
           {invitation.name}
         </Col>
         <Col className="col notify" style={{ padding: "0" }} xs={3}>
-          <Button className="notify-button accept" icon={<CheckOutlined />}>
-            <Link style={style} to="/gamehub/tictactoe/play/lobby/multiplayer">
+          <Button
+            className="notify-modal-button accept"
+            icon={<CheckOutlined />}
+          >
+            <Link
+              className="notify link"
+              to="/gamehub/tictactoe/play/lobby/multiplayer"
+            >
               Accept
             </Link>
           </Button>
         </Col>
         <Col className="col notify" style={{ padding: "0" }} xs={3}>
           <Button
-            className="notify-button decline"
+            className="notify-modal-button decline"
             icon={<CloseOutlined />}
             onClick={() => deleteEl(invitation.name)}
           >
@@ -72,13 +79,9 @@ const Notification = () => {
       <Row>
         <Col className="col notify">
           <Button
-            style={{
-              backgroundColor: "#4fc4b5",
-              width: "50px",
-              height: "50px",
-            }}
+            className="notification-button"
             shape="circle"
-            icon={<BellFilled style={{ color: "#f5f5f5" }} />}
+            icon={<BellFilled style={{ color: "#f5f5f5", fontSize: "30px" }} />}
             onClick={() => setModalVisible(true)}
           />
           <Modal
