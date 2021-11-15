@@ -41,7 +41,7 @@ export const players =[
     },
     {
         name:'Aishan Bamunawita',
-        status: '3mins ago',
+        status: 'offline',
         src: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
         title:"Tech Lead",
         email:"something@99x.io",

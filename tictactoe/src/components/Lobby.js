@@ -10,7 +10,7 @@ import OnlinePlayers from "./OnlinePlayers";
 
 const Lobby = () => {
   const [rounds, setRounds] = useState("ROUNDS");
-  const onlinePlayerList = players.map((player,index) =>(<OnlinePlayers key={index} player={player}/>))
+  const onlinePlayerList = (players.filter(player => player.status.includes("online"))).map((player,index) =>(<OnlinePlayers key={index} player={player}/>))
   console.log(onlinePlayerList);
 
   const menu = (
