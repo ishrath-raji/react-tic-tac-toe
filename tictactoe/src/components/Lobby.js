@@ -12,7 +12,9 @@ import players from "../persondata.json";
 
 const Lobby = () => {
   const [rounds, setRounds] = useState("ROUNDS");
-  const onlinePlayerList = (players.filter(player => player.status == "online")).map((player,index) =>(<OnlinePlayers key={index} player={player}/>))
+  const onlinePlayerList = players
+    .filter((player) => player.status == "online")
+    .map((player, index) => <OnlinePlayers key={index} player={player} />);
   console.log(onlinePlayerList);
 
   const menu = (
@@ -68,12 +70,10 @@ const Lobby = () => {
           <Col md={5}>
             <Row>
               <Col>
-                <div className="">
-                  <SearchBar
-                    placeholder="Search a colleague"
-                    data={ColleagueData}
-                  />
-                </div>
+                <SearchBar
+                  placeholder="Search a colleague"
+                  data={ColleagueData}
+                />
               </Col>
               <Col
                 style={{
