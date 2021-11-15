@@ -1,7 +1,7 @@
 import React from 'react';
 import Player from './Player';
 import "../App";
-
+// import players from "../../persondata.json";
 
 export const players =[
     {

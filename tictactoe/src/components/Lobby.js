@@ -1,16 +1,18 @@
 import React, { useState } from "react";
 import { Container, Col, Row } from "react-bootstrap";
+import Notification from "./Notification";
 import logo from "../icons/tic-tac-toe-logo.png";
 import { Link } from "react-router-dom";
 import { Menu, Dropdown, Button } from "antd";
 import SearchBar from "./SearchBar";
 import ColleagueData from "../MOCK_DATA.json";
-import { players } from "./homeSubComponents/RecentlyPlayed";
+// import { players } from "./homeSubComponents/RecentlyPlayed";
 import OnlinePlayers from "./OnlinePlayers";
+import players from "../persondata.json";
 
 const Lobby = () => {
   const [rounds, setRounds] = useState("ROUNDS");
-  const onlinePlayerList = (players.filter(player => player.status.includes("online"))).map((player,index) =>(<OnlinePlayers key={index} player={player}/>))
+  const onlinePlayerList = (players.filter(player => player.status == "online")).map((player,index) =>(<OnlinePlayers key={index} player={player}/>))
   console.log(onlinePlayerList);
 
   const menu = (
@@ -65,16 +67,27 @@ const Lobby = () => {
           </Col>
           <Col md={5}>
             <Row>
-            <div className="">
-              <SearchBar
-                placeholder="Search a colleague"
-                data={ColleagueData}
-              />
-            </div>
+              <Col>
+                <div className="">
+                  <SearchBar
+                    placeholder="Search a colleague"
+                    data={ColleagueData}
+                  />
+                </div>
+              </Col>
+              <Col
+                style={{
+                  display: "flex",
+                  justifyContent: "right",
+                  alignItems: "center",
+                }}
+              >
+                <Notification />
+              </Col>
             </Row>
             <Row>
               <div className="online-list">
-                <div className="online-player-list" >{onlinePlayerList}</div>
+                <div className="online-player-list">{onlinePlayerList}</div>
               </div>
             </Row>
           </Col>

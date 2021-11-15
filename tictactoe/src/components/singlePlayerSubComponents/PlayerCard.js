@@ -1,6 +1,7 @@
 import "../../App.css";
 import React, { useEffect, useState } from "react";
 import { players } from "../homeSubComponents/RecentlyPlayed";
+// import players from "../../persondata.json";
 
 const PlayerCard = ({ turn, symbol }) => {
   // console.log(turn);

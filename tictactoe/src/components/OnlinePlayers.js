@@ -12,7 +12,7 @@ function OnlinePlayers ({player}){
                     <h6>{player.name}</h6>
                     <div className="activity-status">{player.status}</div>
                 </Col>
-                <Col md={3} className={`activity ${player.status === 'online'? "activity-status":""}`}> </Col>
+                <Col md={3} className={`activity ${player.status === 'online'? "activity-status":""}`}>{player.status}</Col>
             </Row>
         </div>
     )
