@@ -28,7 +28,7 @@ const Lobby = () => {
     const onlinePlayerList = (players.filter(player => player.status == "online")).map((player,index) =>(<OnlinePlayers key={index} player={player}/>))
     setPlayerData(onlinePlayerList);
 
-  })
+  },[])
 
   return (
     <div>
