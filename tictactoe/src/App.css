@@ -683,6 +683,7 @@ col.notify {
   overflow: hidden;
   overflow-y: auto;
   position: absolute;
+  z-index: 1;
 }
 .data-result::-webkit-scrollbar {
   display: none;

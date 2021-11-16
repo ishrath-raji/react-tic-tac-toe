@@ -5,13 +5,12 @@ import logo from "../icons/tic-tac-toe-logo.png";
 import { Link } from "react-router-dom";
 import { Menu, Dropdown, Button } from "antd";
 import SearchBar from "./SearchBar";
-import ColleagueData from "../MOCK_DATA.json";
 import OnlinePlayers from "./OnlinePlayers";
 import players from "../persondata.json";
 
 const Lobby = () => {
   const [rounds, setRounds] = useState("ROUNDS");
-  const [playerData,setPlayerData] = useState([]);
+  const [playerData, setPlayerData] = useState([]);
 
   const menu = (
     <Menu>
@@ -23,12 +22,13 @@ const Lobby = () => {
       </Menu.Item>
     </Menu>
   );
-   
-  useEffect(async ()=> {
-    const onlinePlayerList = (players.filter(player => player.status == "online")).map((player,index) =>(<OnlinePlayers key={index} player={player}/>))
-    setPlayerData(onlinePlayerList);
 
-  })
+  useEffect(async () => {
+    const onlinePlayerList = players
+      .filter((player) => player.status == "online")
+      .map((player, index) => <OnlinePlayers key={index} player={player} />);
+    setPlayerData(onlinePlayerList);
+  }, []);
 
   return (
     <div>
@@ -72,10 +72,7 @@ const Lobby = () => {
           <Col md={5}>
             <Row>
               <Col>
-                <SearchBar
-                  placeholder="Search a colleague"
-                  data={ColleagueData}
-                />
+                <SearchBar placeholder="Search a colleague" data={players} />
               </Col>
               <Col
                 style={{
