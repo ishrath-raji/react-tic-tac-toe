@@ -277,12 +277,10 @@
 }
 .activity {
   color: red;
-  
 }
 
 .activity-status {
   color: green;
-  
 }
 
 .player-row {
@@ -558,7 +556,7 @@
 col.notify {
   height: 45px;
   display: flex;
-  align-items: center;
+  align-items: bottom;
 }
 
 .modalNotify .ant-modal-content {
@@ -572,7 +570,7 @@ col.notify {
   font-size: 23px;
 }
 
-.notify-button {
+.notify-modal-button {
   color: #ffffff;
   height: 80%;
   font-size: 18px;
@@ -581,15 +579,47 @@ col.notify {
   border-radius: 20px;
 }
 
-.notify-button.accept {
+.notify-modal-button:hover {
+  color: white;
+  border: none;
+}
+
+.notify-modal-button.accept {
   background-color: #ff615a;
 }
 
-.notify-button.decline {
+.notify-modal-button.decline {
   background-color: #49b5a7;
 }
 .notify.modal-row {
   margin-bottom: 10px;
+}
+
+.notification-button,
+.notification-button:hover,
+.notification-button:active,
+.notification-button:focus {
+  background-color: #4fc4b5;
+  width: 55px;
+  height: 55px;
+  border: none;
+}
+.notification-button:hover {
+  background-color: #b8b8b8;
+}
+
+.notify.link {
+  width: "100%";
+  display: "flex";
+  flex-direction: "column";
+  justify-content: "center";
+  align-items: "center";
+  color: white;
+}
+
+.notify.link:hover {
+  color: white;
+  background-color: #ff615a;
 }
 
 .buttons-box a {
@@ -624,21 +654,8 @@ col.notify {
 .menu-item {
   font-size: 120%;
 }
-/* .search-bar {
-   border: 1px solid rgb(179, 174, 174);
-   border-radius: 20px;
-   padding: 1%;
-   margin: 5% 0;
- } */
 .search-inputs {
   display: flex;
-}
-
-.search input {
-  border: 1px solid rgb(179, 174, 174);
-  /* border-radius: 20px; */
-  padding: 1%;
-  margin: 5% 0;
 }
 .search-icon {
   border: 1px solid rgb(179, 174, 174);
@@ -649,9 +666,6 @@ col.notify {
   background-color: white;
   display: grid;
   place-items: center;
-}
-.menu-item {
-  font-size: 120%;
 }
 .search-bar {
   border: 1px solid rgb(179, 174, 174);
@@ -659,19 +673,6 @@ col.notify {
   padding: 1%;
   margin: 5% 0 0 0;
   background-color: white;
-}
-.search-inputs {
-  display: flex;
-}
-.search-icon {
-  border: 1px solid rgb(179, 174, 174);
-  padding: 1%;
-  margin: 5% 0;
-  height: 60px;
-  width: 50px;
-  background-color: white;
-  display: grid;
-  place-items: center;
 }
 .data-result {
   margin-top: 5px;
@@ -681,6 +682,7 @@ col.notify {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   overflow: hidden;
   overflow-y: auto;
+  position: absolute;
 }
 .data-result::-webkit-scrollbar {
   display: none;

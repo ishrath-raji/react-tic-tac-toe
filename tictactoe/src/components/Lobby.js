@@ -11,8 +11,7 @@ import players from "../persondata.json";
 
 const Lobby = () => {
   const [rounds, setRounds] = useState("ROUNDS");
-  const [playerData,setPlayerData] = useState({});
-  const onlinePlayerList = (players.filter(player => player.status == "online")).map((player,index) =>(<OnlinePlayers key={index} player={player}/>))
+  const [playerData,setPlayerData] = useState([]);
 
   const menu = (
     <Menu>
@@ -25,8 +24,9 @@ const Lobby = () => {
     </Menu>
   );
    
-  useEffect(async()=> {
-    
+  useEffect(async ()=> {
+    const onlinePlayerList = (players.filter(player => player.status == "online")).map((player,index) =>(<OnlinePlayers key={index} player={player}/>))
+    setPlayerData(onlinePlayerList);
 
   })
 
@@ -72,12 +72,10 @@ const Lobby = () => {
           <Col md={5}>
             <Row>
               <Col>
-                <div className="">
-                  <SearchBar
-                    placeholder="Search a colleague"
-                    data={ColleagueData}
-                  />
-                </div>
+                <SearchBar
+                  placeholder="Search a colleague"
+                  data={ColleagueData}
+                />
               </Col>
               <Col
                 style={{
@@ -91,7 +89,7 @@ const Lobby = () => {
             </Row>
             <Row>
               <div className="online-list">
-                <div className="online-player-list">{onlinePlayerList}</div>
+                <div className="online-player-list">{playerData}</div>
               </div>
             </Row>
           </Col>
