@@ -699,10 +699,10 @@ col.notify {
 .data-item p {
   margin-left: 10px;
 }
-a {
+.data-result a {
   text-decoration: none;
 }
-a:hover {
+.data-result a:hover {
   background-color: lightgrey;
 }
 #clear-btn {
