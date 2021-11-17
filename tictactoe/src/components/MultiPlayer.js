@@ -8,6 +8,7 @@ const style = {
 
 const MultiPlayer = () => {
   const [playerTurn, setPlayerTurn] = useState("X");
+  const [modalVisible, setModalVisible] = useState(false);
 
   const ChangeplayerTurn = (playturn) => {
     setPlayerTurn(playturn);
