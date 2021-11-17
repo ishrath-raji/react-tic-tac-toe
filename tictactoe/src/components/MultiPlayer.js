@@ -3,7 +3,6 @@ import { Container, Col, Row } from "react-bootstrap";
 import GameBoard from "./singlePlayerSubComponents/GameBoard";
 import PlayerCard from "./singlePlayerSubComponents/PlayerCard";
 
-
 const style = {
   border: "1px solid black",
 };
@@ -39,7 +38,7 @@ const MultiPlayer = () => {
             </div>
           </Col>
           <Col md={4} style={style}>
-          < PlayerCard />
+            <PlayerCard />
           </Col>
         </Row>
       </Container>
