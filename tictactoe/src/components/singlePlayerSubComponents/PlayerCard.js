@@ -47,7 +47,7 @@ const PlayerCard = ({ turn, symbol, isMultiplayer, playerNo }) => {
           );
       }else{
         return (
-          <div className="player-card-container multiMargingit p">
+          <div className="player-card-container multiMargin">
             <div className="player-two-card">
               <p className="player-avatar">
                 <Avatar size={100} src={playerAvatar} />
