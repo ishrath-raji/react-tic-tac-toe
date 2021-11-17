@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import players from "../../persondata.json";
 import { Avatar } from "antd";
 
-const PlayerCard = ({ turn, symbol }) => {
+const PlayerCard = ({ turn, symbol, isMultiplayer }) => {
   // console.log(turn);
   const [playerName, setPlayerName] = useState("");
   const [playerAvatar, setPlayerAvatar] = useState("");
@@ -28,20 +28,35 @@ const PlayerCard = ({ turn, symbol }) => {
   useEffect(() => {
     profileData();
   }, []);
+  if(isMultiplayer){
   return (
     <div className="player-card-container">
       <div className={`player-card ${turn === symbol ? "" : "aiturn"}`}>
         <p className="player-avatar">
           <Avatar size={100} src={playerAvatar} />
         </p>
-        <h5>{playerName}</h5>
-        <p>{playerTitle}</p>
-        <p className="player-contact">
-          {playerEmail} {playerTel}
-        </p> 
+          <h5>{playerName}</h5>
+          <p>{playerTitle}</p>
+          <p className="player-contact">
+            {playerEmail} {playerTel}
+        </p>
+        
       </div>
     </div>
   );
+  }else{
+    return (
+      <div className="player-card-container">
+        <div className={`player-card ${turn === symbol ? "" : "aiturn"}`}>
+          <p className="player-avatar">
+            <Avatar size={150} src={playerAvatar} />
+          </p>
+           <h5>{playerName}</h5>
+        </div>
+      </div>
+    );
+
+  }
 };
 
 export default PlayerCard;
