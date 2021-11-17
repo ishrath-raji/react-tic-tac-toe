@@ -75,31 +75,26 @@ const Notification = () => {
   const noListItems = "No Invitations";
 
   return (
-    <div>
-      <Row>
-        <Col className="col notify">
-          <Button
-            className="notification-button"
-            shape="circle"
-            icon={<BellFilled style={{ color: "#f5f5f5", fontSize: "30px" }} />}
-            onClick={() => setModalVisible(true)}
-          />
-          <Modal
-            centered
-            visible={modalVisible}
-            footer={null}
-            width="728px"
-            onCancel={() => setModalVisible(false)}
-            className="modalNotify notification"
-          >
-            <Container>
-              {invitations.length !== 0 ? listItems : noListItems}
-            </Container>
-          </Modal>
-        </Col>
-        <Col className="lobby leadboard"></Col>
-      </Row>
-    </div>
+    <React.Fragment>
+      <Button
+        className="notification-button"
+        shape="circle"
+        icon={<BellFilled style={{ color: "#f5f5f5", fontSize: "30px" }} />}
+        onClick={() => setModalVisible(true)}
+      />
+      <Modal
+        centered
+        visible={modalVisible}
+        footer={null}
+        width="728px"
+        onCancel={() => setModalVisible(false)}
+        className="modalNotify notification"
+      >
+        <Container>
+          {invitations.length !== 0 ? listItems : noListItems}
+        </Container>
+      </Modal>
+    </React.Fragment>
   );
 };
 

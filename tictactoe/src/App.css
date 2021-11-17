@@ -608,6 +608,16 @@ col.notify {
   background-color: #b8b8b8;
 }
 
+.leadboard-button,
+.leadboard-button:hover,
+.leadboard-button:active,
+.leadboard-button:focus {
+  background-color: #ff615a;
+  width: 55px;
+  height: 55px;
+  border: none;
+}
+
 .notify.link {
   width: "100%";
   display: "flex";
