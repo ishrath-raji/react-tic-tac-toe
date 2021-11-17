@@ -20,10 +20,10 @@ const MultiPlayer = () => {
       <Container fluid={true}>
         <Row>
           <Col md={4} style={style}>
-            <PlayerCard isMultiplayer={true} />
+            <PlayerCard isMultiplayer={true} playerNo={1}/>
           </Col>
           <Col md={4} style={style}>
-            <div className="mp-title">
+            <div className="title">
               <span className="title-green">Tic</span>-
               <span className="title-orange">Tac</span>-
               <span className="title-green">Toe</span>
@@ -38,7 +38,7 @@ const MultiPlayer = () => {
             </div>
           </Col>
           <Col md={4} style={style}>
-          < PlayerCard  isMultiplayer={true}/>
+          < PlayerCard  isMultiplayer={true} playerNo={2}/>
           </Col>
         </Row>
       </Container>

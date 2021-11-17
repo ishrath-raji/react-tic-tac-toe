@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import players from "../../persondata.json";
 import { Avatar } from "antd";
 
-const PlayerCard = ({ turn, symbol, isMultiplayer }) => {
+const PlayerCard = ({ turn, symbol, isMultiplayer, playerNo }) => {
   // console.log(turn);
   const [playerName, setPlayerName] = useState("");
   const [playerAvatar, setPlayerAvatar] = useState("");
@@ -29,25 +29,43 @@ const PlayerCard = ({ turn, symbol, isMultiplayer }) => {
     profileData();
   }, []);
   if(isMultiplayer){
-  return (
-    <div className="player-card-container">
-      <div className={`player-card ${turn === symbol ? "" : "aiturn"}`}>
-        <p className="player-avatar">
-          <Avatar size={100} src={playerAvatar} />
-        </p>
-          <h5>{playerName}</h5>
-          <p>{playerTitle}</p>
-          <p className="player-contact">
-            {playerEmail} {playerTel}
-        </p>
-        
-      </div>
-    </div>
-  );
+      if(playerNo === 1){
+        return (
+          <div className="player-card-container multiMargin">
+            <div className="player-one-card">
+              <p className="player-avatar">
+                <Avatar size={100} src={playerAvatar} />
+              </p>
+                <h5>{playerName}</h5>
+                <p>{playerTitle}</p>
+                <p className="player-contact">
+                  {playerEmail} {playerTel}
+              </p>
+              
+            </div>
+          </div>
+          );
+      }else{
+        return (
+          <div className="player-card-container multiMargingit p">
+            <div className="player-two-card">
+              <p className="player-avatar">
+                <Avatar size={100} src={playerAvatar} />
+              </p>
+                <h5>{playerName}</h5>
+                <p>{playerTitle}</p>
+                <p className="player-contact">
+                  {playerEmail} {playerTel}
+              </p>
+              
+            </div>
+          </div>
+          );
+      }
   }else{
     return (
       <div className="player-card-container">
-        <div className={`player-card ${turn === symbol ? "" : "aiturn"}`}>
+        <div className={`player-one-card ${turn === symbol ? "" : "aiturn"}`}>
           <p className="player-avatar">
             <Avatar size={150} src={playerAvatar} />
           </p>
