@@ -35,11 +35,10 @@ const PlayerCard = ({ turn, symbol }) => {
           <img src={playerAvatar} width="150" />
         </p>
         <h5>{playerName}</h5>
-        {/* <p>{playerTitle}</p>
+        <p>{playerTitle}</p>
         <p className="player-contact">
           {playerEmail} {playerTel}
-        </p> */}
-        {/* <p className="player-status">active</p><br/> */}
+        </p> 
       </div>
     </div>
   );
