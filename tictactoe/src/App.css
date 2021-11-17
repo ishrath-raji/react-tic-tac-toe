@@ -764,3 +764,8 @@ col.notify {
 .mp-gameboard {
   padding-left: 15%;
 }
+/*multi players*/
+.player-two{
+  filter: drop-shadow(0px -4px 15px rgba(13, 132, 136, 0.6))
+    drop-shadow(0px 4px 12px #4fc4b5);
+}
