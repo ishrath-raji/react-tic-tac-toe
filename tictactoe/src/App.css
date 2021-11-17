@@ -752,3 +752,15 @@ col.notify {
   border-radius: 5px;
 }
 
+/* multiplayer gameboard */
+.mp-title {
+  margin-top: 5%;
+  font-size: 250%;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mp-gameboard {
+  padding-left: 15%;
+}
