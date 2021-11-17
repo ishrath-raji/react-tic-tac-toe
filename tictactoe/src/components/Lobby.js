@@ -5,7 +5,6 @@ import logo from "../icons/tic-tac-toe-logo.png";
 import { Link } from "react-router-dom";
 import { Menu, Dropdown, Button, Modal } from "antd";
 import SearchBar from "./SearchBar";
-import ColleagueData from "../MOCK_DATA.json";
 import OnlinePlayers from "./OnlinePlayers";
 import players from "../persondata.json";
 import Icon from "@ant-design/icons";
@@ -61,7 +60,7 @@ const Lobby = () => {
       .filter((player) => player.status == "online")
       .map((player, index) => <OnlinePlayers key={index} player={player} />);
     setPlayerData(onlinePlayerList);
-  });
+  }, []);
 
   return (
     <div>
@@ -105,17 +104,18 @@ const Lobby = () => {
           <Col md={5}>
             <Row>
               <Col md={10}>
-                <SearchBar
-                  placeholder="Search a colleague"
-                  data={ColleagueData}
-                />
+                <SearchBar placeholder="Search a colleague" data={players} />
               </Col>
-              <Col style={{ padding: "4% 0 0 0" }}>
+              <Col
+                style={{
+                  padding: "3% 0 0 0",
+                }}
+              >
                 <Notification />
               </Col>
               <Col
                 style={{
-                  padding: "4% 0 0 0",
+                  padding: "3% 0 0 0",
                 }}
               >
                 <Button

@@ -42,7 +42,7 @@ const SinglePlayer = (props) => {
             </div>
           </Col>
           <Col md={4}>
-            <PlayerCard turn={playerTurn} symbol={props.symbol} />
+            <PlayerCard turn={playerTurn} symbol={props.symbol} isMultiplayer={false} />
           </Col>
           <Col md={4}>
             <GameBoard

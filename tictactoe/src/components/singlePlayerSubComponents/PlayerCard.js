@@ -1,9 +1,9 @@
 import "../../App.css";
 import React, { useEffect, useState } from "react";
-import { players } from "../homeSubComponents/RecentlyPlayed";
-// import players from "../../persondata.json";
+import players from "../../persondata.json";
+import { Avatar } from "antd";
 
-const PlayerCard = ({ turn, symbol }) => {
+const PlayerCard = ({ turn, symbol, isMultiplayer }) => {
   // console.log(turn);
   const [playerName, setPlayerName] = useState("");
   const [playerAvatar, setPlayerAvatar] = useState("");
@@ -28,21 +28,35 @@ const PlayerCard = ({ turn, symbol }) => {
   useEffect(() => {
     profileData();
   }, []);
+  if(isMultiplayer){
   return (
     <div className="player-card-container">
       <div className={`player-card ${turn === symbol ? "" : "aiturn"}`}>
         <p className="player-avatar">
-          <img src={playerAvatar} width="150" />
+          <Avatar size={100} src={playerAvatar} />
         </p>
-        <h5>{playerName}</h5>
-        {/* <p>{playerTitle}</p>
-        <p className="player-contact">
-          {playerEmail} {playerTel}
-        </p> */}
-        {/* <p className="player-status">active</p><br/> */}
+          <h5>{playerName}</h5>
+          <p>{playerTitle}</p>
+          <p className="player-contact">
+            {playerEmail} {playerTel}
+        </p>
+        
       </div>
     </div>
   );
+  }else{
+    return (
+      <div className="player-card-container">
+        <div className={`player-card ${turn === symbol ? "" : "aiturn"}`}>
+          <p className="player-avatar">
+            <Avatar size={150} src={playerAvatar} />
+          </p>
+           <h5>{playerName}</h5>
+        </div>
+      </div>
+    );
+
+  }
 };
 
 export default PlayerCard;
