@@ -1,7 +1,7 @@
 import "../../App.css";
 import React, { useEffect, useState } from "react";
-import { players } from "../homeSubComponents/RecentlyPlayed";
-// import players from "../../persondata.json";
+import players from "../../persondata.json";
+import { Avatar } from "antd";
 
 const PlayerCard = ({ turn, symbol }) => {
   // console.log(turn);
@@ -32,7 +32,7 @@ const PlayerCard = ({ turn, symbol }) => {
     <div className="player-card-container">
       <div className={`player-card ${turn === symbol ? "" : "aiturn"}`}>
         <p className="player-avatar">
-          <img src={playerAvatar} width="150" />
+          <Avatar size={100} src={playerAvatar} />
         </p>
         <h5>{playerName}</h5>
         <p>{playerTitle}</p>
