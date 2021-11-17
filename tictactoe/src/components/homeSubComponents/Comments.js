@@ -47,10 +47,15 @@ const Comments = () => {
       return;
     }
 
+    if (!rate) {
+      return;
+    }
+
     setSubmitting(true);
 
     setSubmitting(false);
     setValue("");
+    setRate(0);
     setComments([
       ...comments,
       {
@@ -137,6 +142,7 @@ const Comments = () => {
             enable
             allowHalf
             defaultValue={rate}
+            value={rate}
             onChange={handleRate}
             className="popup-rate"
           />
