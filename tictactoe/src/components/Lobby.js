@@ -30,6 +30,7 @@ const Lobby = () => {
     setPlayerData(onlinePlayerList);
   }, []);
 
+  console.log(rounds);
   return (
     <div>
       <Container style={{ margin: 10 }} fluid={true}>
@@ -47,7 +48,7 @@ const Lobby = () => {
                 </div>
                 <h2>Challenge a friend</h2>
                 <div className="rounds-txt">NUMBER OF ROUNDS</div>
-                <div>
+                <div className="rounds-dropdown">
                   <Dropdown
                     className="no-of-rounds"
                     overlay={menu}

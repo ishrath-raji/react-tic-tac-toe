@@ -28,34 +28,32 @@ const PlayerCard = ({ turn, symbol, isMultiplayer }) => {
   useEffect(() => {
     profileData();
   }, []);
-  if(isMultiplayer){
-  return (
-    <div className="player-card-container">
-      <div className={`player-card ${turn === symbol ? "" : "aiturn"}`}>
-        <p className="player-avatar">
-          <Avatar size={100} src={playerAvatar} />
-        </p>
+  if (isMultiplayer) {
+    return (
+      <div className="player-card-container">
+        <div className={`player-card ${turn === symbol ? "" : "aiturn"}`}>
+          <p className="player-avatar">
+            <Avatar size={100} src={playerAvatar} />
+          </p>
           <h5>{playerName}</h5>
           <p>{playerTitle}</p>
           <p className="player-contact">
             {playerEmail} {playerTel}
-        </p>
-        
+          </p>
+        </div>
       </div>
-    </div>
-  );
-  }else{
+    );
+  } else {
     return (
       <div className="player-card-container">
         <div className={`player-card ${turn === symbol ? "" : "aiturn"}`}>
           <p className="player-avatar">
             <Avatar size={150} src={playerAvatar} />
           </p>
-           <h5>{playerName}</h5>
+          <h5>{playerName}</h5>
         </div>
       </div>
     );
-
   }
 };
 

@@ -3,10 +3,6 @@ import { Container, Col, Row } from "react-bootstrap";
 import GameBoard from "./singlePlayerSubComponents/GameBoard";
 import PlayerCard from "./singlePlayerSubComponents/PlayerCard";
 
-const style = {
-  border: "1px solid black",
-};
-
 const MultiPlayer = () => {
   const [playerTurn, setPlayerTurn] = useState("X");
   const [modalVisible, setModalVisible] = useState(false);
@@ -19,10 +15,10 @@ const MultiPlayer = () => {
     <div>
       <Container fluid={true}>
         <Row>
-          <Col md={4} style={style}>
+          <Col md={4}>
             <PlayerCard isMultiplayer={true} />
           </Col>
-          <Col md={4} style={style}>
+          <Col md={4}>
             <div className="mp-title">
               <span className="title-green">Tic</span>-
               <span className="title-orange">Tac</span>-
@@ -37,7 +33,7 @@ const MultiPlayer = () => {
               />
             </div>
           </Col>
-          <Col md={4} style={style}>
+          <Col md={4}>
             <PlayerCard isMultiplayer={true} />
           </Col>
         </Row>
